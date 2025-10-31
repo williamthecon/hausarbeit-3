@@ -107,18 +107,21 @@ Der Bereich der Sprachverarbeitung oder auch Computerlinguistik kombiniert als T
 
 Er findet vorwiegend Anwendung in der Sentiment-Analyse, bei Chatbots und automatisierten Sprachübersetzungen. \cite[Abs. 11]{evoluce_sprachverarbeitung}
 
+% ---------------- Wichtige Konzepte ---------------
 \subsection{Wichtige Konzepte}
 \label{sec:grundlagen_sprachverarbeitung:wichtige_konzepte}
 
 Bevor in der Sprachverarbeitung ein Algorithmus mit einem Text etwas anfangen kann, muss dieser zuerst in eine Form gebracht werden, die für Maschinen lesbarer und besser verarbeitbar ist als die für uns Menschen gewöhnliche Aneinanderreihung von Zeichen. Auch Menschen nehmen Buchstaben nicht mehr als einzelne Zeichen wahr, sondern als übergeordnete Buchstabengruppen -- Worte \cite[Abs. 5]{satzzeichen_wie_gehirn_woerter_erfasst}.
 
-Am Beispiel großer Sprachmodelle im Bereich der künstlichen Intelligenz nach heutigem Standard lässt es sich leicht veranschaulichen, auch wenn abhängig vom Anwendungsfall die Details abweichen können:
+Am Beispiel großer Sprachmodelle im Bereich der künstlichen Intelligenz nach heutigem Standard lässt sich die Idee leicht veranschaulichen, auch wenn für jeden Anwendungsfall eine andere Vorverarbeitung benötigt wird:
 
-1. Zuerst wird der Eingabetext nach einem speziellen Muster in Einzelteile aufgespalten; das können Wörter, Wortteile oder sogar Buchstaben genauso wie andere Zeichen sein, die alle durch jeweils eine einzigartige Nummer dargestellt werden. Diesen gesamten Prozess nennt man \ti{tokenization}. \cite[Abs. 1, 9, 13]{microsoft_tokens}
+1. Zuerst wird der Eingabetext nach einem speziellen Muster in Einzelteile aufgespalten; das können Wörter, Wortteile oder sogar Buchstaben genauso wie andere Zeichen sein, die alle durch jeweils eine einzigartige Nummer dargestellt werden. Diesen gesamten Prozess nennt man \tb{\ti{tokenization}}. \cite[Abs. 1, 9, 13]{microsoft_tokens}
 
-2. Jedem dieser \ti{tokens} wird nun ein \ti{embedding vector}, ein repräsentativer numerischer Vektor, zugewiesen, der die wahre Bedeutung und den Kontext des \ti{tokens} so nuanciert wie möglich erfassen soll. \cite[Abs. 1, 4]{geeksforgeeks_word_embeddings}\cite[Abs. 21]{microsoft_tokens}
+2. Jedem dieser \ti{tokens} wird nun ein \tb{\ti{embedding vector}}, ein repräsentativer numerischer Vektor, zugewiesen, der die wahre Bedeutung und den Kontext des \ti{tokens} so nuanciert wie möglich erfassen soll. \cite[Abs. 1, 4]{geeksforgeeks_word_embeddings}\cite[Abs. 21]{microsoft_tokens}
 
-3. Im Falle der Transformer-Modelle, wie alle großen Chatbots sie heute sind \cite[Abs. 2]{d2lai_attention_mechanisms_and_transformers}\cite[Abs. 16]{abzglobal_ai_chatbots_history}, werden die Vektoren nun durch eine Reihe sogenannter \ti{attention layers} geschickt, die den gesamten Kontext in einer bisher einzigartigen Art und Weise mit den \ti{embedding vectors} verflechten, der die Relevanz von Wörtern berücksichtigt. \cite[Abs. 1--2]{geeksforgeeks_transformer_attention_mechanism} 
+3. Im Falle der Transformer-Modelle, wie alle großen Chatbots sie heute sind \cite[Abs. 16]{abzglobal_ai_chatbots_history}, werden die Vektoren nun durch eine Reihe sogenannter \tb{\ti{attention layers}} geschickt, die den gesamten Kontext in einer bisher einzigartigen Art und Weise mit den \ti{embedding vectors} verflechten, der die Relevanz von Wörtern berücksichtigt. \cite[Abs. 1--2]{geeksforgeeks_transformer_attention_mechanism}
+
+Das Ergebnis dieser Schritte enthält - wenn auch nicht für Menschen verständlich - sehr vereinfacht gesagt fast alle Informationen, die es zum Eingabetext geben kann -- inklusive der Verbesserungen von Unklarheiten und Fehlern --, nur in sehr kondensierter Form. \cite[Abs. 22--23]{patrickstolp_transformer}
 
 % ==================== Gegenwart ===================
 \section{Gegenwart}
