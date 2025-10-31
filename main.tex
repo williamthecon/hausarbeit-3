@@ -75,7 +75,7 @@ In der Realität funktioniert das meist nicht so gut, wie zahlreiche Nutzerberic
 
 % -------------------- Überblick -------------------
 \subsection{Überblick}
-\label{sec:einleitung:überblick}
+\label{sec:einleitung:ueberblick}
 
 Während Bildschirmtastaturen schon in den späten 1980ern bis frühen 1990ern kommerziell zum Einsatz kamen \cite[]{}, machte erst Apple 2007 das Konzept populär, als es mit seinem zur damaligen Zeit noch sehr unbekannten multitouchfähigen Bildschirm \cite[7:12--7:36]{apple_iphone_praesentation_video}, der also mehrere Berührungspunkte erkennen und darauf reagieren konnte, auf dem ersten iPhone die erste wirklich funktionsfähige Bildschirmtastatur der Welt präsentierte \cite[31:21--31:35]{apple_iphone_praesentation_video}. Obwohl Steve Jobs von der \glqq{}Erfindung\grqq \cite[7:12--7:16]{apple_iphone_praesentation_video} und \glqq{}Patentierung\grqq \cite[7:37--7:39]{apple_iphone_praesentation_video} des multitouchfähigen Bildschirms gesprochen hat, sind sowohl die Funktion als auch der Name schon lange vorher entstanden \cite[]{}. Andere Versuche einer funktionsfähigen Bildschirmtastatur auf solch kleinen Bildschirmen litten jedoch bis zu dem Zeitpunkt an großer Ungenauigkeit und schwerer Bedienung \cite[]{}.
 
@@ -83,7 +83,7 @@ In den 18 Jahren seitdem wurden allerdings sehr wenige Fortschritte erzielt \cit
 
 1. \tb{Autokorrektur} wurde erheblich weiterentwickelt und verbessert: Sie ist intelligenter -- sie benutzt statistische Modelle und neuronale Netze für generell bessere und an den Kontext angepasstere Vorschläge \cite[Abs. 3--4]{annasleben_sprachverarbeitung} --, lernfähig -- passt sich über die Zeit dem Benutzer an\cite[Abs. 5]{annasleben_sprachverarbeitung} -- und mehrsprachig \cite[Abs. 1]{microsoft_swiftkey_unterstuetzte_sprachen}
 
-2. \tb{Schreibvorschläge} wurden in eine Leiste über der Tastatur verschoben verbessert; sie ergänzen Autokorrektur, indem sie Benutzer auswählen lassen, welches Wort sie eigentlich schreiben wollen. Das ist besonders dann nützlich, wenn ein falsch geschriebenes Wort gleich ähnlich zu verschiedenen Worten ist, die auch alle kontextuell möglich und gleich wahrscheinlich sind, sodass Autokorrektur in dem Fall ein Zufälliges der Wörter nehmen müsste.
+2. \tb{Schreibvorschläge} wurden in eine Leiste über der Tastatur verschoben und zusammen mit der Autokorrektur ebenfalls verbessert; sie ergänzen Autokorrektur, indem sie Benutzer auswählen lassen, welches Wort sie eigentlich schreiben wollen. Das ist besonders dann nützlich, wenn ein falsch geschriebenes Wort gleich ähnlich zu verschiedenen Worten ist, die auch alle kontextuell möglich und gleich wahrscheinlich sind, sodass Autokorrektur in dem Fall ein Zufälliges der Wörter nehmen müsste.
 
 3. Sogenanntes \tb{swipe typing} oder \tb{swype typing} -- benannt nach der Firma, die es erfunden und schon 2008 veröffentlicht hat \cite[Abs. 1]{swype_tc50_release_presentation_paper} -- war schon früh sehr fehlertolerant und konnte Worte aus sogenannten \ti{Pfaden} formen, die der Benutzer auf das Bild einer Bildschirmtastatur mit dem Finger oder einem Zeiger malte, ohne dabei ein annähernd perfektes Treffen der richtigen Buchstaben zu erfordern \cite{swype_product}. Konzeptuell ist es sehr ähnlich zur Autokorrektur, da auch diese mit Wahrscheinlichkeiten arbeitet, um das eigentlich \ti{gemeinte} Wort zu bestimmen, wenn etwas getippt wurde \cite[Abs. 10--11]{theatlatic_autocorrect_limitations}.
 
@@ -93,7 +93,7 @@ In den 18 Jahren seitdem wurden allerdings sehr wenige Fortschritte erzielt \cit
 
 In der folgenden Arbeit werde ich mich zuerst kurz mit den Grundlagen der Forschung im Bereich der Sprachverarbeitung auseinandersetzen (\autoref{sec:grundlagen_sprachverarbeitung}) und dann zu den verschiedenen Ansätzen für Sprachkorrektur und -vorhersagen in der Gegenwart übergehen (\autoref{sec:gegenwart}): welche Algorithmen benutzt werden, wie sie funktionieren und was ihre jeweiligen Stärken und Schwächen sind.
 
-Anschließend werde ich Herausforderungen bei der Sprachkorrektur und -vorher\-sage aufzeigen (\autoref{sec:gegenwart:herausforderungen}) und mögliche Lösungsansätze für die Zukunft erklären (\autoref{sec:zukunft:mögliche_lösungen}). Dabei wird es sowohl um bereits bestehende, aber noch unausgeprägte als auch theoretisch finalisierte, aber praktisch noch nicht umgesetzte als auch nur theoretisierte Konzepte gehen, deren verschiedene Vor- und Nachteile ich ebenfalls erläutern werde.
+Anschließend werde ich Herausforderungen bei der Sprachkorrektur und -vorher\-sage aufzeigen (\autoref{sec:gegenwart:herausforderungen}) und mögliche Lösungsansätze für die Zukunft erklären (\autoref{sec:zukunft:moegliche_loesungen}). Dabei wird es sowohl um bereits bestehende, aber noch unausgeprägte als auch theoretisch finalisierte, aber praktisch noch nicht umgesetzte als auch nur theoretisierte Konzepte gehen, deren verschiedene Vor- und Nachteile ich ebenfalls erläutern werde.
 
 Trends und momentane Entwicklungen sowie bestehende Forschungsfragen werde ich kurz anschneiden (\autoref{sec:zukunft:trends}, \ref{sec:zukunft:technische_ausblicke}, \ref{sec:zukunft:forschungs_und_praxisfragen}), um dann zu einer Art Fazit beziehungsweise einer Zusammenfassung zu kommen (\autoref{sec:zusammenfassung}).
 
@@ -105,25 +105,20 @@ Zuletzt werde ich einen Ausblick auf meine Facharbeit geben (\autoref{sec:ausbli
 
 Der Bereich der Sprachverarbeitung oder auch Computerlinguistik kombiniert als Teilgebiet der Informatik und der Künstlichen Intelligenz \cite[Abs. 1]{ibm_natural_language_processing} maschinelles Lernen mit Sprachwissenschaft, um Computern die Fähigkeit zu geben, \glqq{}menschliche Sprache in geschriebener oder gesprochener Form zu verstehen, zu deuten und zu generieren\grqq\cite[Abs. 5]{evoluce_sprachverarbeitung}.
 
-Er findet vorwiegend Anwendung in der Sentiment-Analyse, bei Chatbots und automatisierten Sprachübersetzungen \cite[Abs. 11]{evoluce_sprachverarbeitung}
+Er findet vorwiegend Anwendung in der Sentiment-Analyse, bei Chatbots und automatisierten Sprachübersetzungen. \cite[Abs. 11]{evoluce_sprachverarbeitung}
 
 \subsection{Wichtige Konzepte}
 \label{sec:grundlagen_sprachverarbeitung:wichtige_konzepte}
 
-Bevor in der Sprachverarbeitung ein Algorithmus mit einem Text etwas anfangen kann, muss dieser zuerst in eine Form gebracht werden, die für Maschinen lesbarer und besser verarbeitbar ist als die für uns Menschen gewöhnliche Aneinanderreihung von Zeichen, die \ti{wir} schon automatisch als Gruppen verstehen -- Worte \cite[Abs. 5]{satzzeichen_wie_gehirn_woerter_erfasst}.
+Bevor in der Sprachverarbeitung ein Algorithmus mit einem Text etwas anfangen kann, muss dieser zuerst in eine Form gebracht werden, die für Maschinen lesbarer und besser verarbeitbar ist als die für uns Menschen gewöhnliche Aneinanderreihung von Zeichen. Auch Menschen nehmen Buchstaben nicht mehr als einzelne Zeichen wahr, sondern als übergeordnete Buchstabengruppen -- Worte \cite[Abs. 5]{satzzeichen_wie_gehirn_woerter_erfasst}.
 
-Am Beispiel eines Large-Language-Modells nach heutigem Standard lässt es sich leicht veranschaulichen, auch wenn abhängig vom Anwendungsfall die Details abweichen können:
+Am Beispiel großer Sprachmodelle im Bereich der künstlichen Intelligenz nach heutigem Standard lässt es sich leicht veranschaulichen, auch wenn abhängig vom Anwendungsfall die Details abweichen können:
 
-1. Zuerst wird der Eingabetext nach einem speziellen Muster in Einzelteile aufgespalten; das können Wörter, Wortteile oder sogar Buchstaben genauso wie andere Zeichen sein. Diesen Prozess nennt man \ti{tokenization}. \cite[]{}
+1. Zuerst wird der Eingabetext nach einem speziellen Muster in Einzelteile aufgespalten; das können Wörter, Wortteile oder sogar Buchstaben genauso wie andere Zeichen sein, die alle durch jeweils eine einzigartige Nummer dargestellt werden. Diesen gesamten Prozess nennt man \ti{tokenization}. \cite[Abs. 1, 9, 13]{microsoft_tokens}
 
-2. Jedem dieser \ti{tokens} wird nun ein \ti{embedding vector}, ein repräsentativer numerischer Vektor, zugewiesen, der die wahre Bedeutung und den Kontext des \ti{tokens} so nuanciert wie möglich erfassen soll. \cite[Abs. 1, 4]{geeksforgeeks_word_embeddings}
+2. Jedem dieser \ti{tokens} wird nun ein \ti{embedding vector}, ein repräsentativer numerischer Vektor, zugewiesen, der die wahre Bedeutung und den Kontext des \ti{tokens} so nuanciert wie möglich erfassen soll. \cite[Abs. 1, 4]{geeksforgeeks_word_embeddings}\cite[Abs. 21]{microsoft_tokens}
 
-3. Im Falle der Transformer-Modelle, wie alle großen Chatbots sie sind \cite[]{}, werden die Vektoren nun durch eine Reihe sogenannter \ti{attention layers} geschickt, die den gesamten Kontext in einer bisher einzigartigen Art und Weise mit den \tb{embedding vectors} verflechten, der die Relevanz von Wörtern berücksichtigt. \cite[Abs. 1--2]{geeksforgeeks_transformer_attention_mechanism} 
-
-\subsection{Anwendungen}
-\label{sec:grundlagen_sprachverarbeitung:anwendungen}
-
-
+3. Im Falle der Transformer-Modelle, wie alle großen Chatbots sie heute sind \cite[Abs. 2]{d2lai_attention_mechanisms_and_transformers}\cite[Abs. 16]{abzglobal_ai_chatbots_history}, werden die Vektoren nun durch eine Reihe sogenannter \ti{attention layers} geschickt, die den gesamten Kontext in einer bisher einzigartigen Art und Weise mit den \ti{embedding vectors} verflechten, der die Relevanz von Wörtern berücksichtigt. \cite[Abs. 1--2]{geeksforgeeks_transformer_attention_mechanism} 
 
 % ==================== Gegenwart ===================
 \section{Gegenwart}
@@ -170,7 +165,7 @@ Am Beispiel eines Large-Language-Modells nach heutigem Standard lässt es sich l
 
 % ---------------- Mögliche Lösungen ---------------
 \subsection{Mögliche Lösungen}
-\label{sec:zukunft:mögliche_lösungen}
+\label{sec:zukunft:moegliche_loesungen}
 
 
 
@@ -206,7 +201,7 @@ Am Beispiel eines Large-Language-Modells nach heutigem Standard lässt es sich l
 
 % --- Problemstellungen und mögliche Zielsetzung ---
 \subsection{Problemstellungen und mögliche Zielsetzung}
-\label{sec:ausblick_auf_die_facharbeit:problemstellungen_und_mögliche_zielsetzungen}
+\label{sec:ausblick_auf_die_facharbeit:problemstellungen_und_moegliche_zielsetzungen}
 
 
 
