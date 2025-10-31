@@ -1,0 +1,204 @@
+% ###################### Form ######################
+\documentclass{article}
+\usepackage{geometry}
+
+\geometry{
+ a4paper,
+ total={130mm,257mm},
+ left=30mm,
+ top=20mm
+}
+
+\usepackage{setspace}
+\onehalfspacing
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+% ###################### Stil ######################
+\usepackage[ngerman]{babel}
+\usepackage{graphicx}
+
+\usepackage{xurl} % korrekte Umbrüche in Hyperlinks
+\usepackage[
+    colorlinks=true, % verhindert Linkbox, aber färbt
+    urlcolor=black,
+    linkcolor=black,
+    citecolor=black,
+    filecolor=black,
+    breaklinks=true
+]{hyperref} % korrekter Hyperlink, sogar bei Umbrüchen
+% \expandafter\def\expandafter\UrlBreaks\expandafter{
+%   \UrlBreaks
+%   \do\- % erlaubt Umbrüche am Bindestrich
+% }
+
+
+% ##################### Befehle ####################
+\newcommand{\tb}[1]{\textbf{#1}}
+\newcommand{\ti}[1]{\textit{#1}}
+
+\newcommand{\ct}[2]{\cite[#2]{#1}}
+
+% #################### Metadaten ###################
+\title{Untersuchung der Algorithmen zur Sprachkorrektur und -vorhersage am Beispiel der Bildschirmtastatur}
+\author{Vorname Nachnahme}
+\date{Oktober 2025}
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+% ################### Titelblatt ###################
+\maketitle %ggf ersetzen durch titlepage Umgebung
+
+\pagebreak
+% ############### Inhaltsverzeichnis ###############
+\tableofcontents
+
+\pagebreak
+% ##################### Inhalt #####################
+
+% ==================== Anmerkung ===================
+\tb{Im Folgenden sind jegliche maskulinen, femininen oder neutralen Wortformen, sofern der Kontext es zulässt und nicht explizit das Gegenteil angegeben ist, als generische Formen zu verstehen. Der Einfach- und Knappheit halber wird auf aufwändigere und in der Regel längere geschlechtsneutrale Formen verzichtet, auch mangels einer standardisierten Schreibweise.}
+
+% =================== Einleitung ===================
+\section{Einleitung}
+\label{sec:einleitung}
+
+Beim Tippen auf Bildschirmtastaturen, wie sie auf modernen Mobiltelefonen oder Tabletcomputern mit berührungsempfindlichem Bildschirm zu finden sind, bleiben viele im Hintergrund ablaufende Prozesse für den Nutzer unsichtbar. Idealerweise ist die Benutzererfahrung mit einer digitalen Tastatur so problemlos, dass Korrekturmaßnahmen und Optimierungen nicht auffallen, die Nachteile der geringeren Größe im Vergleich zur physischen Tastatur ausgleichen sollen \ct{iphoneticker_iphone_entwicklung}{Abs. 5--6}.
+
+% Obwohl Bildschirmtastaturen inzwischen selbstverständlich erscheinen, ist ihre Entwicklung das Ergebnis intensiver Forschung und Arbeit vieler Fachleute und Unternehmen. Diese Selbstverständlichkeit ist jedoch beabsichtigt: 
+
+In der Realität funktioniert das meist nicht so gut, wie zahlreiche Nutzerberichte und Diskussionen in sozialen Medien zeigen. Hier wird vor allem die vermeintliche Korrektur von bereits richtig geschriebenen Wörtern kritisiert. \cite{reddit_autokorrect_schlecht_1}\cite{reddit_autokorrect_schlecht_2}
+
+\tb{Autokorrektur}, wie der Algorithmus genannt wird, der Tippfehler korrigieren soll, ist für die erste Bildschirmtastatur, die wirklich erfolgreich wurde, implementiert -- Tippfehler sind fast unvermeidbar \ct{apple_iphone_präsentation_video}{31:21--31:35}.
+
+\tb{Schreibvorschläge}, meist in einer Leiste über der eigentlichen Tastatur, sind ergänzend dazu die Norm. Sie geben dem Benutzer während des Tippens auswählbare Vorschläge, zu denen das momentan direkt vor, um oder nach dem Cursor befindliche Wort geändert werden kann, aber nicht muss.
+
+% -------------------- Überblick -------------------
+\subsection{Überblick}
+\label{sec:einleitung:überblick}
+
+Während Bildschirmtastaturen schon in den späten 1980ern bis frühen 1990ern kommerziell zum Einsatz kamen \ct{}{}, machte erst Apple 2007 das Prinzip populär, als es mit seinem zur damaligen Zeit noch sehr unbekannten multitouchfähigen Bildschirm \ct{apple_iphone_präsentation_video}{7:12--7:36}, der also mehrere Berührungspunkte erkennen und darauf reagieren konnte, auf dem ersten iPhone die erste wirklich funktionsfähige Bildschirmtastatur der Welt präsentierte \ct{apple_iphone_präsentation_video}{31:21--31:35}. Obwohl Steve Jobs von der \glqq{}Erfindung\grqq \ct{apple_iphone_präsentation_video}{7:12--7:16} und \glqq{}Patentierung\grqq \ct{apple_iphone_präsentation_video}{7:37--7:39} des multitouchfähigen Bildschirms gesprochen hat, sind sowohl die Funktion als auch der Name schon lange vorher entstanden \ct{}{}. Andere Versuche einer funktionsfähigen Bildschirmtastatur litten jedoch bis zu dem Zeitpunkt an großer Ungenauigkeit und schwerer Bedienung \ct{}{}.
+
+In den 18 Jahren seitdem wurden allerdings sehr wenige Fortschritte erzielt, insbesondere mit Blick auf die Entwicklungsraten anderer Technologien, wie beispielsweise der Prozessorleistung \ct{cpu_benchmark_years}{Graph 1} oder Künstlicher Intelligenz am Beispiel von OpenAIs GPT-Modellen \cite{datasciencedojo_openai_model_history}:
+
+1. \tb{Autokorrektur} wurde erheblich weiterentwickelt und verbessert: Sie ist \ti{intelligenter} -- sie benutzt statistische Modelle und neuronale Netze für generell bessere und an den Kontext angepasstere Vorschläge \ct{annasleben_sprachverarbeitung}{Abs. 3--4} --, lernfähig -- passt sich über die Zeit dem Benutzer an\ct{annasleben_sprachverarbeitung}{Abs. 5} -- und mehrsprachig \ct{microsoft_swiftkey_unterstützte_sprachen}{}.
+
+2. \tb{Schreibvorschläge} wurden entwickelt und zunehmend adoptiert \ct{}{}; sie ergänzen Autokorrektur, indem sie Benutzer auswählen lassen, welches Wort sie eigentlich schreiben woll(t)en. Das ist besonders dann nützlich, wenn ein falsch geschriebenes Wort gleich ähnlich zu verschiedenen Worten ist, die auch alle kontextuell möglich sind, sodass Autokorrektur in dem Fall zufällig \ti{raten} müsste.
+
+3. Sogenanntes \tb{swipe typing} oder \tb{swype typing} -- benannt nach der Firma, die es erfunden und schon 2008 veröffentlicht hat \ct{swype_tc50_release_presentation_paper}{Abs. 1} -- war schon früh sehr fehlertolerant und konnte Worte aus sogenannten \ti{Pfaden} formen, die der Benutzer auf das Bild einer Bildschirmtastatur mit dem Finger oder einem Zeiger malte, ohne dabei ein annähernd perfektes Treffen der richtigen Buchstaben zu erfordern \ct{}{}. Konzeptuell ist es sehr ähnlich zur Autokorrektur.
+
+% ------------------- Zielsetzung ------------------
+\subsection{Zielsetzung}
+\label{sec:einleitung:zielsetzung}
+
+In der folgenden Arbeit werde ich mich zuerst kurz mit den Grundlagen der Forschung im Bereich der Sprachverarbeitung auseinandersetzen (\autoref{sec:grundlagen}) und dann zu den verschiedenen Ansätzen in der Gegenwart übergehen (\autoref{sec:gegenwart}): welche Algorithmen benutzt werden, wie sie funktionieren und was ihre jeweiligen Stärken und Schwächen sind.
+
+Anschließend werde ich Herausforderungen bei der Sprachkorrektur und -vorhersage aufzeigen (\autoref{sec:gegenwart:herausforderungen}) und mögliche Lösungsansätze für die Zukunft erklären (\autoref{sec:zukunft:mögliche_lösungen}). Dabei wird es sowohl um bereits bestehende, aber noch unausgeprägte als auch theoretisch finalisierte, aber praktisch noch nicht umgesetzte als auch nur theorisierte Konzepte gehen, deren verschiedene Vor- und Nachteile ich ebenfalls erläutern werde.
+
+Trends und momentane Entwicklungen sowie bestehende Forschungsfragen werde ich kurz anschneiden (\autoref{sec:zukunft:trends}, \ref{sec:zukunft:technische_ausblicke}, \ref{sec:zukunft:forschungs_und_praxisfragen}), um dann zu einer Art Fazit beziehungsweise einer Zusammenfassung zu kommen (\autoref{sec:zusammenfassung}).
+
+Zuletzt werde ich einen Ausblick auf meine Facharbeit geben (\autoref{sec:ausblick_auf_die_facharbeit}), über spezifische Ziele theorisieren, mögliche Methoden zur Evaluation der Wirksamkeit meiner Lösungen darstellen und mich klar von Problemen abgrenzen, deren Lösung über den Rahmen hinausgeht.
+
+% =================== Grundlagen ===================
+\section{Grundlagen}
+\label{sec:grundlagen}
+
+% --------------- Sprachverarbeitung ---------------
+\subsection{Sprachverarbeitung}
+\label{sec:grundlagen:sprachverarbeitung}
+
+
+
+% ==================== Gegenwart ===================
+\section{Gegenwart}
+\label{sec:gegenwart}
+
+
+
+% ------------- Algorithmen und Modelle ------------
+\subsection{Algorithmen und Modelle}
+\label{sec:gegenwart:algorithmen_und_modelle}
+
+
+
+% ----- Bewährte Techniken und Designprinzipien ----
+\subsection{Bewährte Techniken und Designprinzipien}
+\label{sec:gegenwart:bewährte_techniken_und_designerprinzipien}
+
+
+
+% ---------------- Herausforderungen ---------------
+\subsection{Herausforderungen}
+\label{sec:gegenwart:herausforderungen}
+
+
+
+% ===================== Zukunft ====================
+\section{Zukunft}
+\label{sec:zukunft}
+
+
+
+% ---------------- Mögliche Lösungen ---------------
+\subsection{Mögliche Lösungen}
+\label{sec:zukunft:mögliche_lösungen}
+
+
+
+% --------------------- Trends ---------------------
+\subsection{Trends}
+\label{sec:zukunft:trends}
+
+
+
+% -------------- Technische Ausblicke --------------
+\subsection{Technische Ausblicke}
+\label{sec:zukunft:technische_ausblicke}
+
+
+
+% ---------- Forschungs- und Praxisfragen ----------
+\subsection{Forschungs- und Praxisfragen}
+\label{sec:zukunft:forschungs_und_praxisfragen}
+
+
+
+% ================= Zusammenfassung ================
+\section{Zusammenfassung}
+\label{sec:zusammenfassung}
+
+
+
+% =========== Ausblick auf die Facharbeit ==========
+\section{Ausblick auf die Facharbeit}
+\label{sec:ausblick_auf_die_facharbeit}
+
+
+
+% --- Problemstellungen und mögliche Zielsetzung ---
+\subsection{Problemstellungen und mögliche Zielsetzung}
+\label{sec:ausblick_auf_die_facharbeit:problemstellungen_und_mögliche_zielsetzungen}
+
+
+
+% ------------ Evaluation und Bewertung ------------
+\subsection{Evaluation und Bewertung}
+\label{sec:ausblick_auf_die_facharbeit:evaluation_und_bewertung}
+
+
+
+% ---------------- Problemabgrenzung ---------------
+\subsection{Problemabgrenzung}
+\label{sec:ausblick_auf_die_facharbeit:problemabgrenzung}
+
+
+
+\pagebreak
+% ############## Literaturverzeichnis ##############
+\bibliographystyle{alphadin}
+\bibliography{bibliografie}
+
+\end{document}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
