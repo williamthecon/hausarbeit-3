@@ -90,9 +90,13 @@ Beim Tippen auf Bildschirmtastaturen, wie sie auf modernen Mobiltelefonen oder T
 
 In der Realität funktioniert das meist nicht so gut, wie zahlreiche Nutzerberichte und Diskussionen in sozialen Medien zeigen. Hier wird vor allem die vermeintliche Korrektur von bereits richtig geschriebenen Wörtern kritisiert. \ctsr{reddit_autokorrect_schlecht_1,reddit_autokorrect_schlecht_2}
 
-\term{Autokorrektur}, wie der Algorithmus genannt wird, der Tippfehler korrigieren soll, ist für die erste wirklich erfolgreiche Bildschirmtastatur implementiert -- Tippfehler sind fast unvermeidbar \ct{apple_iphone_praesentation_video}{ 31:21--31:35}.
+\term{Autokorrektur}, wie der Algorithmus genannt wird, der Tippfehler korrigieren soll, ist schon für die erste wirklich erfolgreiche Bildschirmtastatur implementiert -- Tippfehler sind fast unvermeidbar \ct{apple_iphone_praesentation_video}{31:21--31:35}.
 
-\term{Schreibvorschläge}, meist in einer Leiste über der eigentlichen Tastatur, sind ergänzend dazu die Norm. Sie geben dem Benutzer während des Tippens auswählbare Vorschläge, zu denen das momentan direkt vor, um oder nach dem Cursor befindliche Wort geändert werden kann, aber nicht muss.
+\term{Schreibvorschläge}, meist in einer Leiste über der eigentlichen Tastatur, sind ergänzend dazu die Norm. Sie geben dem Benutzer während des Tippens auswählbare Vorschläge, zu denen das momentan direkt vor, um oder nach dem Cursor befindliche Wort geändert werden kann, aber nicht muss. \ctm{\cite[Abs. 1,2]{techbone_android_vorschlaege_verwenden_einstellen}\cite[Abs. 2,6--7]{apple_autokorrektur_vorschläge_verwenden}}
+
+Sie sind besonders dann nützlich, wenn ein falsch geschriebenes Wort gleich ähnlich zu verschiedenen Worten ist, die auch alle kontextuell möglich und gleich wahrscheinlich sind: Autokorrektur müsste in dem Fall ein zufälliges Wort auswählen; der Nutzer weiß besser, was er tippen will.
+
+Außerdem sind sie schon verfügbar, bevor überhaupt ein Buchstabe des nächsten Wortes getippt wurde \ct{curved_android_tastatur_autokorrektur_verbessern}{Abs. 3}, können also den Tippbedarf drastisch verringern.
 
 % -------------------- Überblick -------------------
 \subsection{Überblick}
@@ -104,9 +108,13 @@ In den 18 Jahren seitdem wurden allerdings sehr wenige Fortschritte erzielt \ct{
 
 1. \term{Autokorrektur} wurde erheblich weiterentwickelt und verbessert: Sie ist intelligenter -- sie benutzt statistische Modelle und neuronale Netze für generell bessere und an den Kontext angepasstere Vorschläge \ct{annasleben_sprachverarbeitung}{Abs. 3--4} --, lernfähig -- passt sich über die Zeit dem Benutzer an\ct{annasleben_sprachverarbeitung}{Abs. 5} -- und mehrsprachig \ct{microsoft_swiftkey_unterstuetzte_sprachen}{Abs. 1}.
 
-2. \term{Schreibvorschläge} wurden in eine Leiste über der Tastatur verschoben und zusammen mit der Autokorrektur ebenfalls verbessert \ct{?}{?}; sie ergänzen Autokorrektur, indem sie Benutzer auswählen lassen, welches Wort sie eigentlich schreiben wollen. Das ist besonders dann nützlich, wenn ein falsch geschriebenes Wort gleich ähnlich zu verschiedenen Worten ist, die auch alle kontextuell möglich und gleich wahrscheinlich sind, sodass Autokorrektur in dem Fall ein Zufälliges der Wörter nehmen müsste \ct{?}{?}.
+2. \term{Schreibvorschläge} wurden ebenfalls verbessert -- sie basieren schließlich auf denselben Algorithmen wie die Autokorrektur. Sie können nun neben Worten auch Emojis und bekannte Informationen wie beispielsweise Kontakt- oder Standortdaten vorschlagen \ct{apple_iphone_textvorschlaege}{Abs. 1--2}.
 
-3. Sogenanntes \term{swipe typing} oder \term{swype typing} -- benannt nach der Firma, die es erfunden und schon 2008 veröffentlicht hat \ct{swype_tc50_release_presentation_paper}{Abs. 1} -- war schon früh sehr fehlertolerant und konnte Worte aus sogenannten \emph{Pfaden} formen, die der Benutzer auf das Bild einer Bildschirmtastatur mit dem Finger oder einem Zeiger malte, ohne dabei ein annähernd perfektes Treffen der richtigen Buchstaben zu erfordern \ctr{swype_product}. Konzeptuell ist es sehr ähnlich zur Autokorrektur, da auch diese mit Wahrscheinlichkeiten arbeitet, um das eigentlich \emph{gemeinte} Wort zu bestimmen, wenn etwas getippt wurde \ct{theatlatic_autocorrect_limitations}{Abs. 10--11}.
+3. Sogenanntes \term{swipe typing} oder \term{swype typing} -- benannt nach der Firma, die es erfunden und schon 2008 veröffentlicht hat \ct{swype_tc50_release_presentation_paper}{Abs. 1} -- war schon früh sehr fehlertolerant und konnte Worte aus sogenannten \emph{Pfaden} formen, die der Benutzer auf das Bild einer Bildschirmtastatur mit dem Finger oder einem Zeiger malte, ohne dabei ein annähernd perfektes Treffen der richtigen Buchstaben zu erfordern \ctr{swype_product}.
+
+Konzeptuell ist es sehr ähnlich zur Autokorrektur, da auch diese mit Wahrscheinlichkeiten arbeitet, um das eigentlich \emph{gemeinte} Wort zu bestimmen, wenn etwas getippt wurde \ct{theatlatic_autocorrect_limitations}{Abs. 10--11}.
+
+In der Anwendung zeichnet es sich vermeintlich vor allem durch seine Schreibgeschwindigkeit aus \ct{swype_product}{}, die zwar für den Guinness Weltrekord für das schnellste Tippen einer Textnachricht bekannt war \ct{techcrunch_swype_guinness_world_record}{}, es inzwischen aber nicht mehr ist \ctsr{guinnessworldrecords_fastest_text_message_type,guinnessworldrecords_fastest_text_message_swype_type} und die in Wirklichkeit nicht besser als bei herkömmlichen Tastaturen ist \ct{sagepub_shape_writing_on_tablets}{Zusammenfassung}, wenn man dieser Studie von 2012 Glauben schenkt, die allerdings die kontextuelle Komponente des Wortbestimmungsalgorithmus ausgeschaltet hat, was die Fähigkeiten dieser Art von Tastatur besonders in Grenzfällen verringert \ct{grammarly_swipe_typing_keyboard}{Abs. 7--10}.
 
 % ------------------- Zielsetzung ------------------
 \subsection{Zielsetzung}
@@ -142,9 +150,9 @@ Am Beispiel großer Sprachmodelle im Bereich der künstlichen Intelligenz nach h
 
 3. Im Falle der Transformer-Modelle, wie alle großen Chatbots sie heute sind \ct{abzglobal_ai_chatbots_history}{Abs. 16}, werden die Vektoren nun durch eine Reihe sogenannter \term{\usfw{attention layers}} geschickt, die den gesamten Kontext in einer bisher einzigartigen Art und Weise mit den \usfw{embedding vectors} verflechten, die die Relevanz von Wörtern berücksichtigt. \ct{geeksforgeeks_transformer_attention_mechanism}{Abs. 1--2}
 
-Das Ergebnis dieser Schritte \usfw{enthält} - wenn auch nicht für Menschen verständlich -- fast alle Informationen, die es zum Eingabetext geben kann -- inklusive der Verbesserungen von Unklarheiten und Fehlern --, nur in sehr kondensierter Form. Vereinfacht gesagt können große Sprachmodelle hiervon ihre Antwort ableiten. \ct{patrickstolp_transformer}{Abs. 22--23}
+Das Ergebnis dieser Schritte \usfw{enthält} - wenn auch nicht für Menschen verständlich -- fast alle Informationen, die es zum Eingabetext geben kann -- inklusive der Verbesserungen von Unklarheiten und Fehlern --, nur in sehr kondensierter Form. Vereinfacht gesagt können große Sprachmodelle hiervon direkt ihre Antwort ableiten. \ct{patrickstolp_transformer}{Abs. 22--23}
 
-Auch Sprachkorrektur und -vorhersagen nutzen diesen Prozess, in der Regel ist ein Teil ihrer Funktionsweise sogar -- abgesehen von seiner Größe -- in seiner algorithmischen Grundstruktur genau wie die großen Sprachmodelle. Schließlich ist, das nächste Wort vorherzusagen, wie es die Sprachvorhersage tut, genau dasselbe, was diese Modelle machen, nur mit einem nächsten Wort anstatt einer vollständigen Antwort. \ct{datacamp_small_language_models}{Abs. 1,11,13,15,30}
+Auch Sprachkorrektur und -vorhersagen nutzen diesen Prozess, in der Regel ist ein Teil ihrer Funktionsweise sogar -- abgesehen von seiner Größe -- in seiner algorithmischen Grundstruktur genau wie bei großen Sprachmodellen. Schließlich ist, das nächste Wort vorherzusagen, wie es die Sprachvorhersage tut, genau dasselbe, was diese Modelle machen, nur mit \emph{einem} nächsten Wort anstatt einer vollständigen Antwort. \ct{datacamp_small_language_models}{Abs. 1,11,13,15,30}
 
 % ==================== Gegenwart ===================
 \section{Gegenwart}
