@@ -22,7 +22,7 @@
 \usepackage{xurl} % korrekte Umbrüche in Hyperlinks
 \usepackage[
     colorlinks=true, % verhindert Linkbox, aber färbt
-    urlcolor=black,
+    urlcolor=black, % deshalb alles schwarz
     linkcolor=black,
     citecolor=black,
     filecolor=black,
@@ -33,31 +33,25 @@
 %   \do\- % erlaubt Umbrüche am Bindestrich
 % }
 
-% Footnotes in zwei Spalten
-\usepackage{dblfnote}
-
-% Initialize dblfnote to make footnotes double columned
-% \dblfnoteSetup{
-%   columnsep = 1.5\columnsep, % space between the two footnote columns
-%   sloppiness = 5000          % controls paragraph formatting in footnotes
-% }
+\usepackage{dblfnote} % Footnotes in zwei Spalten
 
 % ##################### Befehle ####################
 \newcommand{\term}[1]{\textbf{#1}} % term
 \newcommand{\usfw}[1]{\textit{#1}} % umgangsprachlich/fremdwort
 
-\newcommand{\ct}[2]{\footnote{\cite[#2]{#1}}}
-\newcommand{\ctr}[1]{\footnote{\cite{#1}}}
+% These cite commands make for an easier switch between in-text and footnote citations
+\newcommand{\ct}[2]{\footnote{\cite[#2]{#1}}} % cite (normal: source, location)
+\newcommand{\ctr}[1]{\footnote{\cite{#1}}} % cite ("raw": only source)
 \usepackage{xparse}
-\NewDocumentCommand{\cts}{o m}{%
-  \IfNoValueTF{#1}
-    {\footnote{\cite{#2}}}%
-    {\footnote{\cite[#1]{#2}}}%
-}
-\NewDocumentCommand{\ctsr}{m}{%
+% \NewDocumentCommand{\cts}{o m}{ % cite (multiple sources)
+%   \IfNoValueTF{#1}
+%     {\footnote{\cite{#2}}}%
+%     {\footnote{\cite[#1]{#2}}}%
+% }
+\NewDocumentCommand{\ctsr}{m}{ % cite (multiple sources raw)
     \footnote{\cite{#1}}%
 }
-\newcommand{\ctm}[1]{\footnote{#1}}
+\newcommand{\ctm}[1]{\footnote{#1}} % cite manual [only footnote, `\cite` needs to be used]
 
 \newcommand{\qt}[1]{\glqq{}#1\grqq} % quote
 
@@ -92,7 +86,7 @@ In der Realität funktioniert das meist nicht so gut, wie zahlreiche Nutzerberic
 
 \term{Autokorrektur}, wie der Algorithmus genannt wird, der Tippfehler korrigieren soll, ist schon für die erste wirklich erfolgreiche Bildschirmtastatur implementiert -- Tippfehler sind fast unvermeidbar \ct{apple_iphone_praesentation_video}{31:21--31:35}.
 
-\term{Schreibvorschläge}, meist in einer Leiste über der eigentlichen Tastatur, sind ergänzend dazu die Norm. Sie geben dem Benutzer während des Tippens auswählbare Vorschläge, zu denen das momentan direkt vor, um oder nach dem Cursor befindliche Wort geändert werden kann, aber nicht muss. \ctm{\cite[Abs. 1,2]{techbone_android_vorschlaege_verwenden_einstellen}\cite[Abs. 2,6--7]{apple_autokorrektur_vorschläge_verwenden}}
+\term{Schreibvorschläge}, meist in einer Leiste über der eigentlichen Tastatur, sind ergänzend dazu die Norm. Sie geben dem Benutzer während des Tippens auswählbare Vorschläge, zu denen das momentan direkt vor, um oder nach dem Cursor befindliche Wort geändert werden kann, aber nicht muss. \ctm{\cite[Abs. 1,2]{techbone_android_vorschlaege_verwenden_einstellen}\cite[Abs. 2,6--7]{apple_autokorrektur_vorschlaege_verwenden}}
 
 Sie sind besonders dann nützlich, wenn ein falsch geschriebenes Wort gleich ähnlich zu verschiedenen Worten ist, die auch alle kontextuell möglich und gleich wahrscheinlich sind: Autokorrektur müsste in dem Fall ein zufälliges Wort auswählen; der Nutzer weiß besser, was er tippen will.
 
@@ -102,7 +96,9 @@ Außerdem sind sie schon verfügbar, bevor überhaupt ein Buchstabe des nächste
 \subsection{Überblick}
 \label{sec:einleitung:ueberblick}
 
-Während Bildschirmtastaturen schon in den späten 1980ern bis frühen 1990ern kommerziell zum Einsatz kamen \ct{?}{?}, machte erst Apple 2007 das Konzept populär, als es mit seinem zur damaligen Zeit noch sehr unbekannten multitouchfähigen Bildschirm \ct{apple_iphone_praesentation_video}{7:12--7:36}, der also mehrere Berührungspunkte erkennen und darauf reagieren konnte, auf dem ersten iPhone die erste wirklich funktionsfähige Bildschirmtastatur der Welt präsentierte \ct{apple_iphone_praesentation_video}{31:21--31:35}. Obwohl Steve Jobs von der \qt{Erfindung}\ct{apple_iphone_praesentation_video}{7:12--7:16} und \qt{Patentierung}\ct{apple_iphone_praesentation_video}{7:37--7:39} des multitouchfähigen Bildschirms gesprochen hat, sind sowohl die Funktion als auch der Name schon lange vorher entstanden \ct{?}{?}. Andere Versuche einer funktionsfähigen Bildschirmtastatur auf solch kleinen Bildschirmen litten jedoch bis zu dem Zeitpunkt an großer Ungenauigkeit und schwerer Bedienung \ct{?}{?}.
+Während berührungsempfindliche Bildschirme schon seit den 1960ern existieren und erforscht wurden \ct{newhavendisplay_touchscreen_types_history}{Abs. 6 ff.}, wurden Bildschirmtastaturen erst in den späten 1980ern und 1990ern entwickelt \ctr{espacenet_us4725694_a}: Das erste bekannte Beispiel ist hierbei das IBM Simon aus dem November 1993, das einen mit einem Eingabestift bedienbaren Bildschirm besaß, der neben E-Mail, Kalender, Dateisystem und Notizen auch die dafür nötige Bildschirmtastatur darbot\ctr{mobilephonemuseum_ibm_simon}.
+
+Während Bildschirmtastaturen schon in den späten 1980ern bis frühen 1990ern kommerziell zum Einsatz kamen \ct{?}{?}, machte erst Apple 2007 das Konzept beim Massenpublikum populär, als es mit seinem zur damaligen Zeit noch relativ unbekannten multitouchfähigen Bildschirm \ct{apple_iphone_praesentation_video}{7:12--7:36}, der also mehrere Berührungspunkte erkennen und darauf reagieren konnte, auf dem ersten iPhone eine funktionsfähige Bildschirmtastatur der Welt präsentierte \ct{apple_iphone_praesentation_video}{31:21--31:35}. Obwohl Steve Jobs von der \qt{Erfindung}\ct{apple_iphone_praesentation_video}{7:12--7:16} und \qt{Patentierung}\ct{apple_iphone_praesentation_video}{7:37--7:39} des multitouchfähigen Bildschirms gesprochen hat, sind sowohl die Funktion als auch der Name schon lange vorher entstanden \ct{?}{?}. Andere Versuche einer funktionsfähigen Bildschirmtastatur auf solch kleinen Bildschirmen litten jedoch bis zu dem Zeitpunkt an großer Ungenauigkeit und schwerer Bedienung \ct{?}{?}.
 
 In den 18 Jahren seitdem wurden allerdings sehr wenige Fortschritte erzielt \ct{theatlatic_autocorrect_limitations}{Abs. 3}, insbesondere mit Blick auf die Entwicklungsraten anderer Technologien, wie beispielsweise der Prozessorleistung \ct{cpu_benchmark_years}{Graph 1} oder Künstlicher Intelligenz am Beispiel von OpenAIs GPT-Modellen \ctr{datasciencedojo_openai_model_history}:
 
