@@ -33,11 +33,31 @@
 %   \do\- % erlaubt Umbrüche am Bindestrich
 % }
 
+% Footnotes in zwei Spalten
+\usepackage{dblfnote}
+
+% Initialize dblfnote to make footnotes double columned
+% \dblfnoteSetup{
+%   columnsep = 1.5\columnsep, % space between the two footnote columns
+%   sloppiness = 5000          % controls paragraph formatting in footnotes
+% }
 
 % ##################### Befehle ####################
 \newcommand{\term}[1]{\textbf{#1}} % term
-\newcommand{\tb}[1]{\textbf{#1}}
-\newcommand{\ti}[1]{\textit{#1}}
+\newcommand{\usfw}[1]{\textit{#1}} % umgangsprachlich/fremdwort
+
+\newcommand{\ct}[2]{\footnote{\cite[#2]{#1}}}
+\newcommand{\ctr}[1]{\footnote{\cite{#1}}}
+\usepackage{xparse}
+\NewDocumentCommand{\cts}{o m}{%
+  \IfNoValueTF{#1}
+    {\footnote{\cite{#2}}}%
+    {\footnote{\cite[#1]{#2}}}%
+}
+\NewDocumentCommand{\ctsr}{m}{%
+    \footnote{\cite{#1}}%
+}
+\newcommand{\ctm}[1]{\footnote{#1}}
 
 \newcommand{\qt}[1]{\glqq{}#1\grqq} % quote
 
@@ -60,35 +80,33 @@
 % ##################### Inhalt #####################
 
 % ==================== Anmerkung ===================
-\tb{Im Folgenden sind jegliche maskulinen, femininen oder neutralen Wortformen, sofern der Kontext es zulässt und nicht explizit das Gegenteil angegeben ist, als generische Formen zu verstehen. Der Einfach- und Knappheit halber wird auf aufwändigere und in der Regel längere geschlechtsneutrale Formen verzichtet, auch mangels einer standardisierten Schreibweise.}
+\textbf{Im Folgenden sind jegliche maskulinen, femininen oder neutralen Wortformen, sofern der Kontext es zulässt und nicht explizit das Gegenteil angegeben ist, als generische Formen zu verstehen. Der Einfach- und Knappheit halber wird auf aufwändigere und in der Regel längere geschlechtsneutrale Formen verzichtet, auch mangels einer standardisierten Schreibweise.}
 
 % =================== Einleitung ===================
 \section{Einleitung}
 \label{sec:einleitung}
 
-Beim Tippen auf Bildschirmtastaturen, wie sie auf modernen Mobiltelefonen oder Tabletcomputern mit berührungsempfindlichem Bildschirm zu finden sind, bleiben viele im Hintergrund ablaufende Prozesse für den Nutzer unsichtbar. Idealerweise ist die Benutzererfahrung mit einer digitalen Tastatur so problemlos, dass Korrekturmaßnahmen und Optimierungen nicht auffallen, die Nachteile der geringeren Größe im Vergleich zur physischen Tastatur ausgleichen sollen \cite[Abs. 5--6]{iphoneticker_iphone_entwicklung}.
+Beim Tippen auf Bildschirmtastaturen, wie sie auf modernen Mobiltelefonen oder Tabletcomputern mit berührungsempfindlichem Bildschirm zu finden sind, bleiben viele im Hintergrund ablaufende Prozesse für den Nutzer unsichtbar. Idealerweise ist die Benutzererfahrung mit einer digitalen Tastatur so problemlos, dass Korrekturmaßnahmen und Optimierungen nicht auffallen, die Nachteile der geringeren Größe im Vergleich zur physischen Tastatur ausgleichen sollen \ct{iphoneticker_iphone_entwicklung}{Abs. 5--6}.
 
-% Obwohl Bildschirmtastaturen inzwischen selbstverständlich erscheinen, ist ihre Entwicklung das Ergebnis intensiver Forschung und Arbeit vieler Fachleute und Unternehmen. Diese Selbstverständlichkeit ist jedoch beabsichtigt: 
+In der Realität funktioniert das meist nicht so gut, wie zahlreiche Nutzerberichte und Diskussionen in sozialen Medien zeigen. Hier wird vor allem die vermeintliche Korrektur von bereits richtig geschriebenen Wörtern kritisiert. \ctsr{reddit_autokorrect_schlecht_1,reddit_autokorrect_schlecht_2}
 
-In der Realität funktioniert das meist nicht so gut, wie zahlreiche Nutzerberichte und Diskussionen in sozialen Medien zeigen. Hier wird vor allem die vermeintliche Korrektur von bereits richtig geschriebenen Wörtern kritisiert. \cite{reddit_autokorrect_schlecht_1}\cite{reddit_autokorrect_schlecht_2}
+\term{Autokorrektur}, wie der Algorithmus genannt wird, der Tippfehler korrigieren soll, ist für die erste wirklich erfolgreiche Bildschirmtastatur implementiert -- Tippfehler sind fast unvermeidbar \ct{apple_iphone_praesentation_video}{ 31:21--31:35}.
 
-\tb{Autokorrektur}, wie der Algorithmus genannt wird, der Tippfehler korrigieren soll, ist für die erste wirklich erfolgreiche Bildschirmtastatur implementiert -- Tippfehler sind fast unvermeidbar \cite[31:21--31:35]{apple_iphone_praesentation_video}.
-
-\tb{Schreibvorschläge}, meist in einer Leiste über der eigentlichen Tastatur, sind ergänzend dazu die Norm. Sie geben dem Benutzer während des Tippens auswählbare Vorschläge, zu denen das momentan direkt vor, um oder nach dem Cursor befindliche Wort geändert werden kann, aber nicht muss.
+\term{Schreibvorschläge}, meist in einer Leiste über der eigentlichen Tastatur, sind ergänzend dazu die Norm. Sie geben dem Benutzer während des Tippens auswählbare Vorschläge, zu denen das momentan direkt vor, um oder nach dem Cursor befindliche Wort geändert werden kann, aber nicht muss.
 
 % -------------------- Überblick -------------------
 \subsection{Überblick}
 \label{sec:einleitung:ueberblick}
 
-Während Bildschirmtastaturen schon in den späten 1980ern bis frühen 1990ern kommerziell zum Einsatz kamen \cite[]{}, machte erst Apple 2007 das Konzept populär, als es mit seinem zur damaligen Zeit noch sehr unbekannten multitouchfähigen Bildschirm \cite[7:12--7:36]{apple_iphone_praesentation_video}, der also mehrere Berührungspunkte erkennen und darauf reagieren konnte, auf dem ersten iPhone die erste wirklich funktionsfähige Bildschirmtastatur der Welt präsentierte \cite[31:21--31:35]{apple_iphone_praesentation_video}. Obwohl Steve Jobs von der \qt{Erfindung}\cite[7:12--7:16]{apple_iphone_praesentation_video} und \qt{Patentierung}\cite[7:37--7:39]{apple_iphone_praesentation_video} des multitouchfähigen Bildschirms gesprochen hat, sind sowohl die Funktion als auch der Name schon lange vorher entstanden \cite[]{}. Andere Versuche einer funktionsfähigen Bildschirmtastatur auf solch kleinen Bildschirmen litten jedoch bis zu dem Zeitpunkt an großer Ungenauigkeit und schwerer Bedienung \cite[]{}.
+Während Bildschirmtastaturen schon in den späten 1980ern bis frühen 1990ern kommerziell zum Einsatz kamen \ct{?}{?}, machte erst Apple 2007 das Konzept populär, als es mit seinem zur damaligen Zeit noch sehr unbekannten multitouchfähigen Bildschirm \ct{apple_iphone_praesentation_video}{7:12--7:36}, der also mehrere Berührungspunkte erkennen und darauf reagieren konnte, auf dem ersten iPhone die erste wirklich funktionsfähige Bildschirmtastatur der Welt präsentierte \ct{apple_iphone_praesentation_video}{31:21--31:35}. Obwohl Steve Jobs von der \qt{Erfindung}\ct{apple_iphone_praesentation_video}{7:12--7:16} und \qt{Patentierung}\ct{apple_iphone_praesentation_video}{7:37--7:39} des multitouchfähigen Bildschirms gesprochen hat, sind sowohl die Funktion als auch der Name schon lange vorher entstanden \ct{?}{?}. Andere Versuche einer funktionsfähigen Bildschirmtastatur auf solch kleinen Bildschirmen litten jedoch bis zu dem Zeitpunkt an großer Ungenauigkeit und schwerer Bedienung \ct{?}{?}.
 
-In den 18 Jahren seitdem wurden allerdings sehr wenige Fortschritte erzielt \cite[Abs. 3]{theatlatic_autocorrect_limitations}, insbesondere mit Blick auf die Entwicklungsraten anderer Technologien, wie beispielsweise der Prozessorleistung \cite[Graph 1]{cpu_benchmark_years} oder Künstlicher Intelligenz am Beispiel von OpenAIs GPT-Modellen \cite{datasciencedojo_openai_model_history}:
+In den 18 Jahren seitdem wurden allerdings sehr wenige Fortschritte erzielt \ct{theatlatic_autocorrect_limitations}{Abs. 3}, insbesondere mit Blick auf die Entwicklungsraten anderer Technologien, wie beispielsweise der Prozessorleistung \ct{cpu_benchmark_years}{Graph 1} oder Künstlicher Intelligenz am Beispiel von OpenAIs GPT-Modellen \ctr{datasciencedojo_openai_model_history}:
 
-1. \tb{Autokorrektur} wurde erheblich weiterentwickelt und verbessert: Sie ist intelligenter -- sie benutzt statistische Modelle und neuronale Netze für generell bessere und an den Kontext angepasstere Vorschläge \cite[Abs. 3--4]{annasleben_sprachverarbeitung} --, lernfähig -- passt sich über die Zeit dem Benutzer an\cite[Abs. 5]{annasleben_sprachverarbeitung} -- und mehrsprachig \cite[Abs. 1]{microsoft_swiftkey_unterstuetzte_sprachen}
+1. \term{Autokorrektur} wurde erheblich weiterentwickelt und verbessert: Sie ist intelligenter -- sie benutzt statistische Modelle und neuronale Netze für generell bessere und an den Kontext angepasstere Vorschläge \ct{annasleben_sprachverarbeitung}{Abs. 3--4} --, lernfähig -- passt sich über die Zeit dem Benutzer an\ct{annasleben_sprachverarbeitung}{Abs. 5} -- und mehrsprachig \ct{microsoft_swiftkey_unterstuetzte_sprachen}{Abs. 1}.
 
-2. \tb{Schreibvorschläge} wurden in eine Leiste über der Tastatur verschoben und zusammen mit der Autokorrektur ebenfalls verbessert; sie ergänzen Autokorrektur, indem sie Benutzer auswählen lassen, welches Wort sie eigentlich schreiben wollen. Das ist besonders dann nützlich, wenn ein falsch geschriebenes Wort gleich ähnlich zu verschiedenen Worten ist, die auch alle kontextuell möglich und gleich wahrscheinlich sind, sodass Autokorrektur in dem Fall ein Zufälliges der Wörter nehmen müsste.
+2. \term{Schreibvorschläge} wurden in eine Leiste über der Tastatur verschoben und zusammen mit der Autokorrektur ebenfalls verbessert \ct{?}{?}; sie ergänzen Autokorrektur, indem sie Benutzer auswählen lassen, welches Wort sie eigentlich schreiben wollen. Das ist besonders dann nützlich, wenn ein falsch geschriebenes Wort gleich ähnlich zu verschiedenen Worten ist, die auch alle kontextuell möglich und gleich wahrscheinlich sind, sodass Autokorrektur in dem Fall ein Zufälliges der Wörter nehmen müsste \ct{?}{?}.
 
-3. Sogenanntes \tb{swipe typing} oder \tb{swype typing} -- benannt nach der Firma, die es erfunden und schon 2008 veröffentlicht hat \cite[Abs. 1]{swype_tc50_release_presentation_paper} -- war schon früh sehr fehlertolerant und konnte Worte aus sogenannten \emph{Pfaden} formen, die der Benutzer auf das Bild einer Bildschirmtastatur mit dem Finger oder einem Zeiger malte, ohne dabei ein annähernd perfektes Treffen der richtigen Buchstaben zu erfordern \cite{swype_product}. Konzeptuell ist es sehr ähnlich zur Autokorrektur, da auch diese mit Wahrscheinlichkeiten arbeitet, um das eigentlich \emph{gemeinte} Wort zu bestimmen, wenn etwas getippt wurde \cite[Abs. 10--11]{theatlatic_autocorrect_limitations}.
+3. Sogenanntes \term{swipe typing} oder \term{swype typing} -- benannt nach der Firma, die es erfunden und schon 2008 veröffentlicht hat \ct{swype_tc50_release_presentation_paper}{Abs. 1} -- war schon früh sehr fehlertolerant und konnte Worte aus sogenannten \emph{Pfaden} formen, die der Benutzer auf das Bild einer Bildschirmtastatur mit dem Finger oder einem Zeiger malte, ohne dabei ein annähernd perfektes Treffen der richtigen Buchstaben zu erfordern \ctr{swype_product}. Konzeptuell ist es sehr ähnlich zur Autokorrektur, da auch diese mit Wahrscheinlichkeiten arbeitet, um das eigentlich \emph{gemeinte} Wort zu bestimmen, wenn etwas getippt wurde \ct{theatlatic_autocorrect_limitations}{Abs. 10--11}.
 
 % ------------------- Zielsetzung ------------------
 \subsection{Zielsetzung}
@@ -106,39 +124,37 @@ Zuletzt werde ich einen Ausblick auf meine Facharbeit geben (\autoref{sec:ausbli
 \section{Grundlage: Sprachverarbeitung}
 \label{sec:grundlagen_sprachverarbeitung}
 
-Der Bereich der Sprachverarbeitung oder auch Computerlinguistik kombiniert als Teilgebiet der Informatik und der Künstlichen Intelligenz \cite[Abs. 1]{ibm_natural_language_processing} maschinelles Lernen mit Sprachwissenschaft, um Computern die Fähigkeit zu geben, \glqq{}menschliche Sprache in geschriebener oder gesprochener Form zu verstehen, zu deuten und zu generieren\grqq\cite[Abs. 5]{evoluce_sprachverarbeitung}.
+Der Bereich der Sprachverarbeitung oder auch Computerlinguistik kombiniert als Teilgebiet der Informatik und der Künstlichen Intelligenz \ct{ibm_natural_language_processing}{Abs. 1} maschinelles Lernen mit Sprachwissenschaft, um Computern die Fähigkeit zu geben, \qt{menschliche Sprache in geschriebener oder gesprochener Form zu verstehen, zu deuten und zu generieren}\ct{evoluce_sprachverarbeitung}{Abs. 5}.
 
-Er findet vorwiegend Anwendung in der Sentiment-Analyse, bei Chatbots und automatisierten Sprachübersetzungen. \cite[Abs. 11]{evoluce_sprachverarbeitung}
+Er findet vorwiegend Anwendung in der Sentiment-Analyse, bei Chatbots und automatisierten Sprachübersetzungen. \ct{evoluce_sprachverarbeitung}{Abs. 11}
 
 % ---------------- Wichtige Konzepte ---------------
 \subsection{Wichtige Konzepte}
 \label{sec:grundlagen_sprachverarbeitung:wichtige_konzepte}
 
-Bevor in der Sprachverarbeitung ein Algorithmus mit einem Text etwas anfangen kann, muss dieser zuerst in eine Form gebracht werden, die für Maschinen lesbarer und besser verarbeitbar ist als die für uns Menschen gewöhnliche Aneinanderreihung von Zeichen. Auch Menschen nehmen Buchstaben nicht mehr als einzelne Zeichen wahr, sondern als übergeordnete Buchstabengruppen -- Worte \cite[Abs. 5]{satzzeichen_wie_gehirn_woerter_erfasst}.
+Bevor in der Sprachverarbeitung ein Algorithmus mit einem Text etwas anfangen kann, muss dieser zuerst in eine Form gebracht werden, die für Maschinen lesbarer und besser verarbeitbar ist als die für uns Menschen gewöhnliche Aneinanderreihung von Zeichen. Auch Menschen nehmen Buchstaben nicht mehr als einzelne Zeichen wahr, sondern als übergeordnete Buchstabengruppen -- Worte \ct{satzzeichen_wie_gehirn_woerter_erfasst}{Abs. 5}.
 
 Am Beispiel großer Sprachmodelle im Bereich der künstlichen Intelligenz nach heutigem Standard lässt sich die Idee leicht veranschaulichen, auch wenn für jeden Anwendungsfall eine andere Vorverarbeitung benötigt wird:
 
-1. Zuerst wird der Eingabetext nach einem speziellen Muster in Einzelteile aufgespalten; das können Wörter, Wortteile oder sogar Buchstaben genauso wie andere Zeichen sein, die alle durch jeweils eine einzigartige Nummer dargestellt werden. Diesen gesamten Prozess nennt man \tb{\ti{tokenization}}. \cite[Abs. 1, 9, 13]{microsoft_tokens}
+1. Zuerst wird der Eingabetext nach einem speziellen Muster in Einzelteile aufgespalten; das können Wörter, Wortteile oder sogar Buchstaben genauso wie andere Zeichen sein, die alle durch jeweils eine einzigartige Nummer dargestellt werden. Diesen gesamten Prozess nennt man \term{\usfw{tokenization}}. \ct{microsoft_tokens}{Abs. 1,9,13}
 
-2. Jedem dieser \ti{tokens} wird nun ein \tb{\ti{embedding vector}}, ein repräsentativer numerischer Vektor, zugewiesen, der die wahre Bedeutung und den Kontext des \ti{tokens} so nuanciert wie möglich erfassen soll. \cite[Abs. 1, 4]{geeksforgeeks_word_embeddings}\cite[Abs. 21]{microsoft_tokens}
+2. Jedem dieser \usfw{token} wird nun ein \term{\usfw{embedding vector}}, ein repräsentativer numerischer Vektor, zugewiesen, der die wahre Bedeutung und den Kontext des \usfw{token} so nuanciert wie möglich erfassen soll. \ctm{\cite[Abs. 1,4]{geeksforgeeks_word_embeddings}\cite[Abs. 21]{microsoft_tokens}}
 
-3. Im Falle der Transformer-Modelle, wie alle großen Chatbots sie heute sind \cite[Abs. 16]{abzglobal_ai_chatbots_history}, werden die Vektoren nun durch eine Reihe sogenannter \tb{\ti{attention layers}} geschickt, die den gesamten Kontext in einer bisher einzigartigen Art und Weise mit den \ti{embedding vectors} verflechten, die die Relevanz von Wörtern berücksichtigt. \cite[Abs. 1--2]{geeksforgeeks_transformer_attention_mechanism}
+3. Im Falle der Transformer-Modelle, wie alle großen Chatbots sie heute sind \ct{abzglobal_ai_chatbots_history}{Abs. 16}, werden die Vektoren nun durch eine Reihe sogenannter \term{\usfw{attention layers}} geschickt, die den gesamten Kontext in einer bisher einzigartigen Art und Weise mit den \usfw{embedding vectors} verflechten, die die Relevanz von Wörtern berücksichtigt. \ct{geeksforgeeks_transformer_attention_mechanism}{Abs. 1--2}
 
-Das Ergebnis dieser Schritte \ti{enthält} - wenn auch nicht für Menschen verständlich -- fast alle Informationen, die es zum Eingabetext geben kann -- inklusive der Verbesserungen von Unklarheiten und Fehlern --, nur in sehr kondensierter Form. Vereinfacht gesagt können große Sprachmodelle hiervon ihre Antwort ableiten. \cite[Abs. 22--23]{patrickstolp_transformer}
+Das Ergebnis dieser Schritte \usfw{enthält} - wenn auch nicht für Menschen verständlich -- fast alle Informationen, die es zum Eingabetext geben kann -- inklusive der Verbesserungen von Unklarheiten und Fehlern --, nur in sehr kondensierter Form. Vereinfacht gesagt können große Sprachmodelle hiervon ihre Antwort ableiten. \ct{patrickstolp_transformer}{Abs. 22--23}
 
-Auch Sprachkorrektur und -vorhersagen nutzen diesen Prozess, in der Regel ist ein Teil ihrer Funktionsweise sogar -- abgesehen von seiner Größe -- in seiner algorithmischen Grundstruktur genau wie die großen Sprachmodelle. Schließlich ist, das nächste Wort vorherzusagen, wie es die Sprachvorhersage tut, genau dasselbe, was diese Modelle machen, nur mit einem nächsten Wort anstatt einer vollständigen Antwort. \cite[Abs. 1, 11, 13, 15, 30]{datacamp_small_language_models}
+Auch Sprachkorrektur und -vorhersagen nutzen diesen Prozess, in der Regel ist ein Teil ihrer Funktionsweise sogar -- abgesehen von seiner Größe -- in seiner algorithmischen Grundstruktur genau wie die großen Sprachmodelle. Schließlich ist, das nächste Wort vorherzusagen, wie es die Sprachvorhersage tut, genau dasselbe, was diese Modelle machen, nur mit einem nächsten Wort anstatt einer vollständigen Antwort. \ct{datacamp_small_language_models}{Abs. 1,11,13,15,30}
 
 % ==================== Gegenwart ===================
 \section{Gegenwart}
 \label{sec:gegenwart}
 
-
-
 % ------------- Algorithmen und Modelle ------------
 \subsection{Algorithmen und Modelle}
 \label{sec:gegenwart:algorithmen_und_modelle}
 
-Ich habe gesagt:
+Sprachkorrektur und -vorhersagen sind heute stark von auf künstlicher Intelligenz basierenden Methoden geprägt, die vor allem das Kontextverständnis enorm verbessern \ct{evoluce_fehlerkorrektur}{Abs. 7,12,15}. Trotzdem wird sich bei den heutigen Bildschirmtastaturen nicht nur auf dieses eben nur wahrscheinlich richtige\ctm{\cite[Abs. 2,9--10]{lernenwiemaschinen_wahrscheinlichkeit_ki}\cite[Abs. 2--3]{tagesschau_ki_erfindet_jede_dritte_antwort}} aber eben auch schwer nachvollziehbare\ct{fraunhofer_ki_blackbox}{Abs. 1--2} Mittel verlassen, um den Benutzer so unauffällig und -dringlich wie möglich beim Tippen in jeglichem Umfeld zu unterstützen \ct{languagetool_kuenstliche_intelligenz_bessere_korrektur}{Abs. 14--15}; ganz ohne probabilistische Verfahren kommen moderne Bildschirmtastaturen allerdings auch nicht aus.
 
 \subsubsection{Statistische Sprachmodelle}
 \label{sec:gegenwart:algorithmen_und_modelle:statistische_sprachmodelle}
