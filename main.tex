@@ -203,7 +203,17 @@ Regelbasierte Methoden sind heute allerdings nicht mehr wirklich relevant. Es gi
 \subsection{Herausforderungen}
 \label{sec:gegenwart:herausforderungen}
 
+Eine Sache steht auf jeden Fall fest: Die Sprachkorrektur muss früher besser sein als die Sprachvorhersage, weil Fehler hier eine schlimmere Auswirkung haben. Vorschläge gibt es mehrere und sie sind optional, heißt, der Benutzer kann immer noch entscheiden, sie nicht auszuwählen. Autokorrektur hingegen arbeitet im Hintergrund und kann entweder alles überprüfen und möglicherweise korrigieren oder gar nichts.
 
+Die drei großen Herausforderungen, vor denen die Entwickler der Sprachkorrektur stehen, sind:
+
+1. Kontext: Der Algorithmus muss sowohl den Satz, den Paragrafen und den gesamten Text als auch den Softwarekontext kennen. Während Ersteres zwar grundsätzlich schon durch große neuronale Netze mehr oder weniger erfolgreich angegangen wird, braucht es für Letzteres erst einmal eine genormte, allgemein akzeptierte und implementierte technische Grundlage. Dabei wird so gut wie jede Person an verschiedene Personen auf verschiedene Arten Nachrichten schreiben und wieder anders digitales Tagebuch führen.
+
+2. Mischsprachen: Viele Nutzer berichten in den sozialen Medien, dass sie selbst oder Bekannte von ihnen häufig mehrere Sprachen in einem Text vereinen. Das stellt den Korrekturalgorithmus für eine besonders komplizierte Aufgabe, denn Wörterbücher verschiedener Sprachen lassen sich sicher vereinen, Grammatik und Kontext sind allerdings deutlich schwieriger zu kombinieren.
+
+3. Schreibstil: Individuelle Wörter, Abkürzungen oder Wendungen, die nicht im gewöhnlichen oder durchschnittlichen Sprachgebrauch in der Form oder Häufigkeit vorkommen, sollen zwar durch lernfähige Methoden berücksichtigt werden, das muss aber nicht immer so funktionieren; dabei kann sowohl zu wenig als auch zu viel oder aber nicht in den richtigen Momenten Rücksicht genommen werden.
+
+Alle Probleme für alle Nutzer werden sich wohl nie lösen lassen, was, genau genommen, ein weiteres Problem darstellt: Bei der Entwicklung des Algorithmus bis jetzt und der Weiterentwicklung in der Zukunft wird stets auf eine möglichst große Masse gezielt werden, an deren Schreibverhalten sie sich anpassen. Minderheiten werden dadurch zwangsweise außen vor gelassen.
 
 % ===================== Zukunft ====================
 \section{Zukunft}
