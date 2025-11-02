@@ -125,7 +125,7 @@ In der folgenden Arbeit werde ich mich zuerst kurz mit den Grundlagen der Forsch
 
 Anschließend werde ich Herausforderungen bei der Sprachkorrektur und -vorher\-sage aufzeigen (\autoref{sec:gegenwart:herausforderungen}) und mögliche Lösungsansätze für die Zukunft erklären (\autoref{sec:zukunft:moegliche_loesungen}). Dabei wird es sowohl um bereits bestehende, aber noch unausgeprägte als auch theoretisch finalisierte, aber praktisch noch nicht umgesetzte als auch nur theoretisierte Konzepte gehen, deren verschiedene Vor- und Nachteile ich ebenfalls erläutern werde.
 
-Trends und momentane Entwicklungen sowie bestehende Forschungsfragen werde ich kurz anschneiden (\autoref{sec:zukunft:trends}, \ref{sec:zukunft:technische_ausblicke}, \ref{sec:zukunft:forschungs_und_praxisfragen}), um dann zu einer Art Fazit beziehungsweise einer Zusammenfassung zu kommen (\autoref{sec:zusammenfassung}).
+Momentane Entwicklungen sowie bestehende Forschungsfragen werde ich kurz anschneiden (\autoref{sec:zukunft:technische_ausblicke}, \ref{sec:zukunft:forschungs_und_praxisfragen}), um dann zu einer Art Fazit beziehungsweise einer Zusammenfassung zu kommen (\autoref{sec:zusammenfassung}).
 
 Zuletzt werde ich einen Ausblick auf meine Facharbeit geben (\autoref{sec:ausblick_auf_die_facharbeit}), über spezifische Ziele theoretisieren, mögliche Methoden zur Evaluation der Wirksamkeit meiner Lösungen darstellen und mich klar von Problemen abgrenzen, deren Lösung über den Rahmen hinausgeht.
 
@@ -168,70 +168,93 @@ Sprachkorrektur und -vorhersagen sind heute stark von auf künstlicher Intellige
 \subsubsection{Statistische Sprachmodelle}
 \label{sec:gegenwart:algorithmen_und_modelle:statistische_sprachmodelle}
 
-Algorithmen dieser Kategorie bauen regelmäßig auf einer großen Datenbasis auf, um verlässlich funktionieren zu können. Sie analysieren den gegebenen Datensatz und können die Häufigkeiten, mit denen bestimmte Wortfolgen oder -muster auftreten, erkennen.
+Algorithmen dieser Kategorie bauen regelmäßig auf einer großen Datenbasis auf, um verlässlich funktionieren zu können \ct{?}{?}. Sie analysieren den gegebenen Datensatz und können die Häufigkeiten, mit denen bestimmte Wortfolgen oder Muster auftreten, erkennen \ct{?}{?}.
 
-Der einfachste Ansatz für ein statistisches Modell ist das \term{N-Gramm}: Hierbei werden die Wahrscheinlichkeiten aller -- im Datensatz enthaltenen -- Wortfolgen von $N$ Worten festgestellt, sodass bei einer vorangegangenen Anzahl von $N-1$ Wörtern das nächste Wort, das im Datensatz am häufigsten nach diesen Wörtern stand, mit einer bestimmten Wahrscheinlichkeit vorhergesagt werden kann.
+Der einfachste Ansatz für ein statistisches Modell ist das \term{N-Gramm}: Hierbei werden die Wahrscheinlichkeiten aller -- im Datensatz enthaltenen -- Wortfolgen von $N$ Worten festgestellt, sodass bei einer vorangegangenen Anzahl von $N-1$ Wörtern das nächste Wort, das im Datensatz am häufigsten nach diesen Wörtern stand, mit einer bestimmten Wahrscheinlichkeit vorhergesagt werden kann. \ct{?}{?}
 
 Dabei kommen folgende Ausprägungen am meisten zur Anwendung:
 
-1. Unigramme (1-Gramme) -- wie häufig kommt ein einziges Wort vor --,
+1. Unigramme (1-Gramme) -- wie häufig kommt ein einziges Wort vor -- \ct{?}{?},
 
-2. Bigramme (2-Gramme) -- wie häufig folgt ein Wort auf ein anderes -- und 
+2. Bigramme (2-Gramme) -- wie häufig folgt ein Wort auf ein anderes -- \ct{?}{?} und 
 
-3. Trigramme (3-Gramme) bis 5-Gramme -- wie oft folgt auf eine Kette von Wörtern ein anderes.
+3. Trigramme (3-Gramme) bis 5-Gramme -- wie oft folgt auf eine Kette von Wörtern ein anderes \ct{?}{?}.
 
-Längere Ketten von Wörtern führen zu exponentiell mehr Kombinationsmöglichkeiten und bringen außerdem durch das N-Grammen generell fehlende Kontextverständnis keine nennenswerten Vorteile mehr \ct{?}{?}.
+Längere Ketten von Wörtern führen zu exponentiell mehr Kombinationsmöglichkeiten \ct{?}{?} und bringen außerdem durch das N-Grammen generell fehlende Kontextverständnis keine nennenswerten Vorteile mehr \ct{?}{?}.
 
-Es gibt viele Abwandlungen, die verschiedene Schwächen von N-Grammen korrigieren sollen, wie beispielsweise bidirektionale oder exponentielle N-Gramme, die Häufigkeiten von sowohl folgenden als auch vorangehenden Wörtern zählen beziehungsweise die zusätzliche Mechanismen in die Wahrscheinlichkeitsrechnung einbauen, die den Kontext mehr berücksichtigen und zu schnelle Rückschlüsse aus den Daten verhindern sollen.
+Es gibt viele Abwandlungen, die verschiedene Schwächen von N-Grammen korrigieren sollen, wie beispielsweise bidirektionale oder exponentielle N-Gramme, die Häufigkeiten von sowohl folgenden als auch vorangehenden Wörtern zählen \ct{?}{?} beziehungsweise die zusätzliche Mechanismen in die Wahrscheinlichkeitsrechnung einbauen, die den Kontext mehr berücksichtigen und zu schnelle Rückschlüsse aus den Daten verhindern sollen \ct{?}{?}.
 
-Ein weiterer sehr populärer aber deutlich komplexerer Ansatz ist das \term{neuronale Netz}: Die Parameter einer Reihung von Matrixmultiplikationen werden mit einer idealerweise extrem großen Menge an Daten so lange angepasst, bis aus einer kodierten Wortfolge die Wahrscheinlichkeitsverteilung des darauf folgenden Wortes errechnet werden kann.
+Ein weiterer sehr populärer aber deutlich komplexerer Ansatz ist das \term{neuronale Netz}: Die Parameter einer Reihung von Matrixmultiplikationen werden mit einer idealerweise extrem großen Menge an Daten so lange angepasst, bis aus einer kodierten Wortfolge die Wahrscheinlichkeitsverteilung des darauf folgenden Wortes errechnet werden kann. \ct{?}{?}
 
-Diesem Algorithmus sind in der Theorie keine Grenzen gesetzt, sowohl für die Länge der Wortfolge als auch für die Anzahl der Parameter als auch für die Genauigkeit der Ausgabe. In der Praxis erreichen Modelle allerdings nie perfekte Quoten, da ein gewisses finanzielles Interesse Unternehmen davon abhält, häufig kostenlos und unbegrenzt Benutzern zur Verfügung gestellten Modellen auch nur annähernd genug Rechenkapazität zu geben.
+Diesem Algorithmus sind in der Theorie keine Grenzen gesetzt, sowohl für die Länge der Wortfolge als auch für die Anzahl der Parameter als auch für die Genauigkeit der Ausgabe \ct{?}{?}. In der Praxis erreichen Modelle allerdings nie perfekte Quoten \ct{?}{?}, da ein gewisses finanzielles Interesse Unternehmen davon abhält, häufig kostenlos und unbegrenzt Benutzern zur Verfügung gestellten\ct{?}{?} Modellen auch nur annähernd genug Rechenkapazität zu geben.
 
 Bevor die größten Modelle in ihrer Größe jedoch weiter wachsen, fehlt es als Erstes an einer ganz anderen Ressource: Trainingsdaten, besonders hochqualitative \ct{?}{?}.
 
-Trotzdem sind neuronale Netze älteren Modellen wie N-Grammen weit überlegen, weil sie Kontext in einer Menge und Art berücksichtigen können, die mit N-Grammen unrealistisch zu erreichen ist, selbst wenn theoretisch ein solches System erschaffen werden könnte.
+Trotzdem sind neuronale Netze älteren Modellen wie N-Grammen weit überlegen, weil sie Kontext in einer Menge und Art berücksichtigen können, die mit N-Grammen unrealistisch zu erreichen ist \ct{?}{?}, selbst wenn theoretisch ein solches System erschaffen werden könnte \ct{?}{?}.
 
 \subsubsection{Wissensbasierte Sprachmodelle}
 \label{sec:gegenwart:algorithmen_und_modelle:wissensbasierte_sprachmodelle}
 
-Algorithmen aus dieser Kategorie verlassen sich regelmäßig auf handgefertigte Regelsätze. Ein prominentes Beispiel ist hier LanguageTool, ein Rechtschreib- und Grammatikkorrektur-Programm, das sich neben einer neueren Künstlichen Intelligenz vor allem auf einen großen Regelkorpus stützt \ct{?}{?}.
+Algorithmen aus dieser Kategorie verlassen sich regelmäßig auf handgefertigte Regelsätze \ct{?}{?}. Ein prominentes Beispiel ist hier LanguageTool, ein Rechtschreib- und Grammatikkorrektur-Programm, das sich neben einer neueren Künstlichen Intelligenz vor allem auf einen großen Regelkorpus stützt \ct{?}{?}.
 
-Regelbasierte Methoden sind heute allerdings nicht mehr wirklich relevant. Es gibt zu viele Sprachen, zu viele Regeln und vor allem zu viele Sonderfälle. Wissensbasierte Sprachmodelle können in der Theorie perfekte oder zumindest die besten Voraussagen leisten, sind jedoch in der Praxis sowohl im Aufbau als auch in der Instandhaltung und Pflege schlicht zu aufwändig.
+Regelbasierte Methoden sind heute allerdings nicht mehr wirklich relevant \ct{?}{?}. Es gibt zu viele Sprachen, zu viele Regeln und vor allem zu viele Sonderfälle \ct{?}{?}. Wissensbasierte Sprachmodelle können in der Theorie perfekte oder zumindest die besten Voraussagen leisten, sind jedoch in der Praxis sowohl im Aufbau als auch in der Instandhaltung und Pflege schlicht zu aufwändig \ct{?}{?}.
 
 % ---------------- Herausforderungen ---------------
 \subsection{Herausforderungen}
 \label{sec:gegenwart:herausforderungen}
 
-Eine Sache steht auf jeden Fall fest: Die Sprachkorrektur muss früher besser sein als die Sprachvorhersage, weil Fehler hier eine schlimmere Auswirkung haben. Vorschläge gibt es mehrere und sie sind optional, heißt, der Benutzer kann immer noch entscheiden, sie nicht auszuwählen. Autokorrektur hingegen arbeitet im Hintergrund und kann entweder alles überprüfen und möglicherweise korrigieren oder gar nichts.
+Auf jeden Fall steht fest, dass die Sprachkorrektur früher besser als die Sprachvorhersage sein muss, weil Fehler dort eine schlimmere Auswirkung haben: Vorschläge gibt es mehrere und sie sind optional, heißt, der Benutzer kann immer noch entscheiden, sie nicht auszuwählen. Autokorrektur hingegen arbeitet im Hintergrund und kann entweder alles überprüfen und möglicherweise korrigieren oder gar nichts.
 
 Die drei großen Herausforderungen, vor denen die Entwickler der Sprachkorrektur stehen, sind:
 
-1. Kontext: Der Algorithmus muss sowohl den Satz, den Paragrafen und den gesamten Text als auch den Softwarekontext kennen. Während Ersteres zwar grundsätzlich schon durch große neuronale Netze mehr oder weniger erfolgreich angegangen wird, braucht es für Letzteres erst einmal eine genormte, allgemein akzeptierte und implementierte technische Grundlage. Dabei wird so gut wie jede Person an verschiedene Personen auf verschiedene Arten Nachrichten schreiben und wieder anders digitales Tagebuch führen.
+1. \label{par:herausforderungen:1_kontext}\term{Kontext}: Der Algorithmus muss sowohl den Satz, den Paragrafen und den gesamten Text als auch den Softwarekontext kennen. Während Ersteres zwar grundsätzlich schon durch große neuronale Netze mehr oder weniger erfolgreich angegangen wird \ct{?}{?}, braucht es für Letzteres erst einmal\ct{?}{?} eine genormte, allgemein akzeptierte und implementierte technische Grundlage. Dabei wird so gut wie jede Person zum Beispiel an verschiedene andere Personen auf verschiedene Arten Nachrichten schreiben und wieder anders digitales Tagebuch führen.
 
-2. Mischsprachen: Viele Nutzer berichten in den sozialen Medien, dass sie selbst oder Bekannte von ihnen häufig mehrere Sprachen in einem Text vereinen. Das stellt den Korrekturalgorithmus für eine besonders komplizierte Aufgabe, denn Wörterbücher verschiedener Sprachen lassen sich sicher vereinen, Grammatik und Kontext sind allerdings deutlich schwieriger zu kombinieren.
+2. \term{Mischsprache}: Viele Nutzer berichten in den sozialen Medien, dass sie selbst oder Bekannte von ihnen häufig mehrere Sprachen in einem Text vereinen \ct{?}{?}. Das stellt den Korrekturalgorithmus vor eine besonders komplizierte Aufgabe, denn Wörterbücher verschiedener Sprachen lassen sich sicher vereinen \ct{?}{?}, Grammatik und Kontext sind allerdings deutlich schwieriger zu kombinieren \ct{?}{?}.
 
-3. Schreibstil: Individuelle Wörter, Abkürzungen oder Wendungen, die nicht im gewöhnlichen oder durchschnittlichen Sprachgebrauch in der Form oder Häufigkeit vorkommen, sollen zwar durch lernfähige Methoden berücksichtigt werden, das muss aber nicht immer so funktionieren; dabei kann sowohl zu wenig als auch zu viel oder aber nicht in den richtigen Momenten Rücksicht genommen werden.
+3. \term{Schreibstil}: Individuelle Wörter, Abkürzungen oder Wendungen, die nicht im gewöhnlichen oder durchschnittlichen Sprachgebrauch in der Form oder Häufigkeit vorkommen, sollen zwar durch lernfähige Methoden berücksichtigt werden \ct{?}{?}, das muss aber nicht immer so funktionieren; dabei kann sowohl zu wenig als auch zu viel oder aber nicht in den richtigen Momenten Rücksicht genommen werden \ct{?}{?}.
 
-Alle Probleme für alle Nutzer werden sich wohl nie lösen lassen, was, genau genommen, ein weiteres Problem darstellt: Bei der Entwicklung des Algorithmus bis jetzt und der Weiterentwicklung in der Zukunft wird stets auf eine möglichst große Masse gezielt werden, an deren Schreibverhalten sie sich anpassen. Minderheiten werden dadurch zwangsweise außen vor gelassen.
+Alle Probleme für alle Nutzer werden sich wohl nie lösen lassen \ct{?}{?}, was, genau genommen, ein weiteres Problem darstellt: Bei der Entwicklung des Algorithmus bis jetzt und der Weiterentwicklung in der Zukunft wird stets auf eine möglichst große Masse gezielt werden, an deren Schreibverhalten sie sich anpassen \ct{?}{?}. Minderheiten würden dadurch stets außen vor gelassen.
+
+Die letzte Herausforderung liegt in dem Wechsel von externer Berechnung, der Abhängigkeit von der Cloud, hin zur lokalen Berechnung \ct{?}{?}. Das hat verschiedene Vorteile, beispielsweise mehr Privatsphäre und schnellere Ergebnisse \ct{?}{?}, gleichzeitig aber auch Nachteile: Große Sprachmodelle, wie sie heute benutzt werden, können technisch bedingt nicht auf schwachen Konsumentenmobilgeräten laufen \ct{?}{?}; das Verkleinern verringert die Genauigkeit der Ergebnisse \ct{?}{?}.
 
 % ===================== Zukunft ====================
 \section{Zukunft}
 \label{sec:zukunft}
 
-
-
 % ---------------- Mögliche Lösungen ---------------
 \subsection{Mögliche Lösungen}
 \label{sec:zukunft:moegliche_loesungen}
 
+\subsubsection{1. Kontext}
+\label{sec:zukunft:moegliche_loesungen:1_kontext}
 
+\textit{Ideen: auf technische Grundlage drängen/diese schaffen, bessere/diversere Trainingsdaten, mehr regelbasierte Ansätze}
+
+\subsubsection{2. Mischsprache}
+\label{sec:zukunft:moegliche_loesungen:2_mischsprache}
+
+\textit{Ideen: mehr Trainingsdaten, Analyse von Gebrauch => gezielte Implementierung}
+
+\subsubsection{3. Schreibstil}
+\label{sec:zukunft:moegliche_loesungen:3_schreibstil}
+
+\textit{Ideen: separate, auswählbare Algorithmen entwickeln, nicht einen generellen für alle, weitgehende Studie zur Analyse verschiedener Schreibstile}
+
+\subsubsection{4. Minderheiten}
+\label{sec:zukunft:moegliche_loesungen:4_minderheiten}
+
+\textit{Ideen: (s. Punkt 3)}
+
+\subsubsection{5. Lokalisierung}
+\label{sec:zukunft:moegliche_loesungen:5_lokalisierung}
+
+\textit{Ideen: Forschung und Verbesserung von SLMs, mehr regelbasierte Ansätze, Verbesserung der Hardware (KI-Chips für Gemini sind sowieso schon in Handys)}
 
 % -------------- Technische Ausblicke --------------
 \subsection{Technische Ausblicke}
 \label{sec:zukunft:technische_ausblicke}
 
-
+\textit{Hardware auch auf Mobilgeräten immer mehr für KI geeignet, SLMs zunehmend realisierbarer, bessere Trainingsdaten(?)}
 
 % ---------- Forschungs- und Praxisfragen ----------
 \subsection{Forschungs- und Praxisfragen}
