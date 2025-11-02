@@ -34,14 +34,15 @@
 % }
 
 \usepackage{dblfnote} % Footnotes in zwei Spalten
+\usepackage{footmisc} % Footnotes referieren
 
 % ##################### Befehle ####################
 \newcommand{\term}[1]{\textbf{#1}} % term
 \newcommand{\usfw}[1]{\textit{#1}} % umgangsprachlich/fremdwort
 
 % These cite commands make for an easier switch between in-text and footnote citations
-\newcommand{\ct}[2]{\footnote{\cite[#2]{#1}}} % cite (normal: source, location)
-\newcommand{\ctr}[1]{\footnote{\cite{#1}}} % cite ("raw": only source)
+\newcommand{\ct}[2]{\footnote{\label{footnote:#1-#2}\cite[#2]{#1}}} % cite (normal: source, location)
+\newcommand{\ctr}[1]{\footnote{\label{footnote:#1}\cite{#1}}} % cite ("raw": only source)
 \usepackage{xparse}
 % \NewDocumentCommand{\cts}{o m}{ % cite (multiple sources)
 %   \IfNoValueTF{#1}
@@ -84,7 +85,7 @@ Beim Tippen auf Bildschirmtastaturen, wie sie auf modernen Mobiltelefonen oder T
 
 In der Realität funktioniert das meist nicht so gut, wie zahlreiche Nutzerberichte und Diskussionen in sozialen Medien zeigen. Hier wird vor allem die vermeintliche Korrektur von bereits richtig geschriebenen Wörtern kritisiert. \ctsr{reddit_autokorrect_schlecht_1,reddit_autokorrect_schlecht_2}
 
-\term{Autokorrektur}, wie der Algorithmus genannt wird, der Tippfehler korrigieren soll, ist schon für die erste wirklich erfolgreiche Bildschirmtastatur implementiert -- Tippfehler sind fast unvermeidbar \ct{apple_iphone_praesentation_video}{31:21--31:35}.
+\term{Autokorrektur}, wie der Algorithmus genannt wird, der Tippfehler korrigieren soll, ist schon für die erste wirklich erfolgreiche Bildschirmtastatur implementiert -- Tippfehler sind fast unvermeidbar. \ct{apple_iphone_praesentation_video}{31:21--31:35}
 
 \term{Schreibvorschläge}, meist in einer Leiste über der eigentlichen Tastatur, sind ergänzend dazu die Norm. Sie geben dem Benutzer während des Tippens auswählbare Vorschläge, zu denen das momentan direkt vor, um oder nach dem Cursor befindliche Wort geändert werden kann, aber nicht muss. \ctm{\cite[Abs. 1,2]{techbone_android_vorschlaege_verwenden_einstellen}\cite[Abs. 2,6--7]{apple_autokorrektur_vorschlaege_verwenden}}
 
@@ -96,9 +97,11 @@ Außerdem sind sie schon verfügbar, bevor überhaupt ein Buchstabe des nächste
 \subsection{Überblick}
 \label{sec:einleitung:ueberblick}
 
-Während berührungsempfindliche Bildschirme schon seit den 1960ern existieren und weiter erforscht werden \ct{newhavendisplay_touchscreen_types_history}{Abs. 6 ff.}, wurden Bildschirmtastaturen erst in den späten 1980ern und 1990ern entwickelt \ctr{espacenet_us4725694_a}\ct{?}{?}. \qt{Infobildschirme[...] im öffentlichen Raum [sollten] [...] stör- und zerstöranfällige Tastaturen vermeiden}\ct{digisaurier_kleine_weltgeschichte_der_tastaturen}{Abs. 10}. Das erste bekannte Beispiel im Konsumentenmarkt ist das IBM Simon aus dem November 1993 -- der Marktstart war im August 1994 \ct{bbc_ibm_simon_celebrates_20_years}{Abs. 2} --, das einen mit einem Eingabestift bedienbaren Bildschirm besaß, der neben E-Mail, Kalender, Dateisystem und Notizen auch die dafür nötige Bildschirmtastatur darbot \ctr{mobilephonemuseum_ibm_simon}.
+Während berührungsempfindliche Bildschirme schon seit den 1960ern existieren und weiter erforscht werden \ct{newhavendisplay_touchscreen_types_history}{Abs. 6 ff.}, wurden Bildschirmtastaturen erst in den späten 1980ern und 1990ern entwickelt \ctsr{google_patent_us4725694a, google_patent_us4763356a, google_patent_us5276794a, google_patent_us5936614a, google_patent_ca2244431c}. \qt{Infobildschirme[...] im öffentlichen Raum [sollten] [...] stör- und zerstöranfällige Tastaturen vermeiden}\ct{digisaurier_kleine_weltgeschichte_der_tastaturen}{Abs. 10}. Das erste bekannte Beispiel im Konsumentenmarkt ist das IBM Simon aus dem November 1993 -- der Marktstart war im August 1994 \ct{bbc_ibm_simon_celebrates_20_years}{Abs. 2} --, das einen mit einem Eingabestift bedienbaren Bildschirm besaß, der neben E-Mail, Kalender, Dateisystem und Notizen auch die dafür nötige Bildschirmtastatur darbot \ctr{mobilephonemuseum_ibm_simon}.
 
-Erst Apple machte 2007 das Konzept beim Massenpublikum populär, als es mit seinem zur damaligen Zeit noch relativ unbekannten multitouchfähigen Bildschirm \ct{apple_iphone_praesentation_video}{7:12--7:36}, der also mehrere Berührungspunkte erkennen und darauf reagieren konnte, auf dem ersten iPhone eine funktionsfähige Bildschirmtastatur der Welt präsentierte \ct{apple_iphone_praesentation_video}{31:21--31:35}. Obwohl Steve Jobs von der \qt{Erfindung}\ct{apple_iphone_praesentation_video}{7:12--7:16} und \qt{Patentierung}\ct{apple_iphone_praesentation_video}{7:37--7:39} des multitouchfähigen Bildschirms gesprochen hat, sind sowohl die Funktion als auch der Name schon lange vorher entstanden \ct{?}{?}. Andere Versuche einer funktionsfähigen Bildschirmtastatur auf solch kleinen Bildschirmen litten jedoch bis zu dem Zeitpunkt an großer Ungenauigkeit und schwerer Bedienung \ct{?}{?}.
+Richtig populär machte erst Apple 2007 eine Bildschirmtastatur auf dem zur damaligen Zeit noch relativ unbekannten multitouchfähigen Bildschirm \ct{apple_iphone_praesentation_video}{7:12--7:36}, der also mehrere Berührungspunkte erkennen und darauf reagieren konnte, des ersten iPhones. \footref{footnote:apple_iphone_praesentation_video-31:21--31:35}
+
+Obwohl Steve Jobs von der \qt{Erfindung}\ct{apple_iphone_praesentation_video}{7:12--7:16} und \qt{Patentierung}\ct{apple_iphone_praesentation_video}{7:37--7:39} des multitouchfähigen Bildschirms gesprochen hat, sind sowohl die Funktion als auch der Name schon lange vorher entstanden \ct{reshinedisplay_capacitive_touchscreen_knowledge}{Abs. 7--8}. Andere Versuche einer funktionsfähigen Bildschirmtastatur auf solch kleinen Bildschirmen litten jedoch bis zu dem Zeitpunkt meist an Ungenauigkeit und schwerer Bedienung \ctm{\cite[Abs. 2]{fastcompany_ibm_invented_smartphone_then_abandoned}\cite[S. 119, Sp. 2]{inforworld_oct_1994}\cite[Abs. 10]{thoughtco_history_computer_keyboard}}.
 
 In den 18 Jahren seitdem wurden allerdings sehr wenige Fortschritte erzielt \ct{theatlatic_autocorrect_limitations}{Abs. 3}, insbesondere mit Blick auf die Entwicklungsraten anderer Technologien, wie beispielsweise der Prozessorleistung \ct{cpu_benchmark_years}{Graph 1} oder Künstlicher Intelligenz am Beispiel von OpenAIs GPT-Modellen \ctr{datasciencedojo_openai_model_history}:
 
@@ -108,9 +111,11 @@ In den 18 Jahren seitdem wurden allerdings sehr wenige Fortschritte erzielt \ct{
 
 3. Sogenanntes \term{swipe typing} oder \term{swype typing} -- benannt nach der Firma, die es erfunden und schon 2008 veröffentlicht hat \ct{swype_tc50_release_presentation_paper}{Abs. 1} -- war schon früh sehr fehlertolerant und konnte Worte aus sogenannten \emph{Pfaden} formen, die der Benutzer auf das Bild einer Bildschirmtastatur mit dem Finger oder einem Zeiger malte, ohne dabei ein annähernd perfektes Treffen der richtigen Buchstaben zu erfordern \ctr{swype_product}.
 
-Konzeptuell ist es sehr ähnlich zur Autokorrektur, da auch diese mit Wahrscheinlichkeiten arbeitet, um das eigentlich \emph{gemeinte} Wort zu bestimmen, wenn etwas getippt wurde \ct{theatlatic_autocorrect_limitations}{Abs. 10--11}.
+Konzeptuell ist es sehr ähnlich zur Autokorrektur, da auch diese mit Wahrscheinlichkeiten arbeitet, um das eigentlich \emph{gemeinte} Wort zu bestimmen, wenn etwas getippt wurde. \ct{theatlatic_autocorrect_limitations}{Abs. 10--11}
 
-In der Anwendung zeichnet es sich vermeintlich vor allem durch seine Schreibgeschwindigkeit aus \ct{swype_product}{}, die zwar für den Guinness Weltrekord für das schnellste Tippen einer Textnachricht bekannt war \ct{techcrunch_swype_guinness_world_record}{}, es inzwischen aber nicht mehr ist \ctsr{guinnessworldrecords_fastest_text_message_type,guinnessworldrecords_fastest_text_message_swype_type} und die in Wirklichkeit nicht besser als bei herkömmlichen Tastaturen ist \ct{sagepub_shape_writing_on_tablets}{Zusammenfassung}, wenn man dieser Studie von 2012 Glauben schenkt, die allerdings die kontextuelle Komponente des Wortbestimmungsalgorithmus ausgeschaltet hat, was die Fähigkeiten dieser Art von Tastatur besonders in Grenzfällen verringert \ct{grammarly_swipe_typing_keyboard}{Abs. 7--10}.
+In der Anwendung zeichnet es sich vermeintlich vor allem durch seine Schreibgeschwindigkeit aus \footref{footnote:swype_product}, die zwar für den Guinness Weltrekord für das schnellste Tippen einer Textnachricht bekannt war \ctr{techcrunch_swype_guinness_world_record}, es inzwischen aber nicht mehr ist \ctsr{guinnessworldrecords_fastest_text_message_type, guinnessworldrecords_fastest_text_message_swype_type} und nach einer Studie von 2012 auch nie war \ct{sagepub_shape_writing_on_tablets}{Zusammenfassung}.
+
+Da diese Studie allerdings die kontextuelle Komponente des Wortbestimmungsalgorithmus ausgeschaltet hat, lässt sich das Ergebnis zumindest anzweifeln, da dies die Fähigkeiten dieser Art von Tastatur besonders in Grenzfällen einschränkt \ct{grammarly_swipe_typing_keyboard}{Abs. 7--10}.
 
 % ------------------- Zielsetzung ------------------
 \subsection{Zielsetzung}
@@ -144,7 +149,7 @@ Am Beispiel großer Sprachmodelle im Bereich der künstlichen Intelligenz nach h
 
 2. Jedem dieser \usfw{token} wird nun ein \term{\usfw{embedding vector}}, ein repräsentativer numerischer Vektor, zugewiesen, der die wahre Bedeutung und den Kontext des \usfw{token} so nuanciert wie möglich erfassen soll. \ctm{\cite[Abs. 1,4]{geeksforgeeks_word_embeddings}\cite[Abs. 21]{microsoft_tokens}}
 
-3. Im Falle der Transformer-Modelle, wie alle großen Chatbots sie heute sind \ct{abzglobal_ai_chatbots_history}{Abs. 16}, werden die Vektoren nun durch eine Reihe sogenannter \term{\usfw{attention layers}} geschickt, die den gesamten Kontext in einer bisher einzigartigen Art und Weise mit den \usfw{embedding vectors} verflechten, die die Relevanz von Wörtern berücksichtigt. \ct{geeksforgeeks_transformer_attention_mechanism}{Abs. 1--2}
+3. Im Falle der Transformer-Modelle -- eine spezielle Form der großen Sprachmodelle, der alle großen Chatbots heute entsprechen \ct{abzglobal_ai_chatbots_history}{Abs. 16} -- werden die Vektoren nun durch eine Reihe sogenannter \term{\usfw{attention layers}} geschickt, Funktionen, die den gesamten Kontext in einer bisher einzigartigen Art und Weise mit den \usfw{embedding vectors} verflechten, die die Relevanz von Wörtern berücksichtigt. \ct{geeksforgeeks_transformer_attention_mechanism}{Abs. 1--2}
 
 Das Ergebnis dieser Schritte \usfw{enthält} - wenn auch nicht für Menschen verständlich -- fast alle Informationen, die es zum Eingabetext geben kann -- inklusive der Verbesserungen von Unklarheiten und Fehlern --, nur in sehr kondensierter Form. Vereinfacht gesagt können große Sprachmodelle hiervon direkt ihre Antwort ableiten. \ct{patrickstolp_transformer}{Abs. 22--23}
 
@@ -158,7 +163,7 @@ Auch Sprachkorrektur und -vorhersagen nutzen diesen Prozess, in der Regel ist ei
 \subsection{Algorithmen und Modelle}
 \label{sec:gegenwart:algorithmen_und_modelle}
 
-Sprachkorrektur und -vorhersagen sind heute stark von auf künstlicher Intelligenz basierenden Methoden geprägt, die vor allem das Kontextverständnis enorm verbessern \ct{evoluce_fehlerkorrektur}{Abs. 7,12,15}. Trotzdem wird sich bei den heutigen Bildschirmtastaturen nicht nur auf dieses eben nur wahrscheinlich richtige\ctm{\cite[Abs. 2,9--10]{lernenwiemaschinen_wahrscheinlichkeit_ki}\cite[Abs. 2--3]{tagesschau_ki_erfindet_jede_dritte_antwort}} aber eben auch schwer nachvollziehbare\ct{fraunhofer_ki_blackbox}{Abs. 1--2} Mittel verlassen, um den Benutzer so unauffällig und -dringlich wie möglich beim Tippen in jeglichem Umfeld zu unterstützen \ct{languagetool_kuenstliche_intelligenz_bessere_korrektur}{Abs. 14--15}; ganz ohne probabilistische Verfahren kommen moderne Bildschirmtastaturen allerdings auch nicht aus.
+Sprachkorrektur und -vorhersagen sind heute stark von auf künstlicher Intelligenz basierenden Methoden geprägt, die vor allem das Kontextverständnis enorm verbessern \ct{evoluce_fehlerkorrektur}{Abs. 7,12,15}. Trotzdem wird sich bei den heutigen Bildschirmtastaturen nicht nur auf dieses eben nur wahrscheinlich richtige\ctm{\cite[Abs. 2,9--10]{lernenwiemaschinen_wahrscheinlichkeit_ki}\cite[Abs. 2--3]{tagesschau_ki_erfindet_jede_dritte_antwort}}, aber eben auch schwer nachvollziehbare\ct{fraunhofer_ki_blackbox}{Abs. 1--2} Mittel verlassen, um den Benutzer so unauffällig und -dringlich wie möglich beim Tippen in jeglichem Umfeld zu unterstützen \ct{languagetool_kuenstliche_intelligenz_bessere_korrektur}{Abs. 14--15}; ganz ohne probabilistische Verfahren kommen moderne Bildschirmtastaturen allerdings schwer aus: Sogar Tastaturen für Fernseher, die man nur mit Pfeiltasten kontrolliert, können optimiert werden \ctr{maxhalfordgithub_dynamic_onscreen_tv_keyboards}.
 
 \subsubsection{Statistische Sprachmodelle}
 \label{sec:gegenwart:algorithmen_und_modelle:statistische_sprachmodelle}
