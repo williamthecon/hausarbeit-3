@@ -163,26 +163,41 @@ Auch Sprachkorrektur und -vorhersagen nutzen diesen Prozess, in der Regel ist ei
 \subsection{Algorithmen und Modelle}
 \label{sec:gegenwart:algorithmen_und_modelle}
 
-Sprachkorrektur und -vorhersagen sind heute stark von auf künstlicher Intelligenz basierenden Methoden geprägt, die vor allem das Kontextverständnis enorm verbessern \ct{evoluce_fehlerkorrektur}{Abs. 7,12,15}. Trotzdem wird sich bei den heutigen Bildschirmtastaturen nicht nur auf dieses eben nur wahrscheinlich richtige\ctm{\cite[Abs. 2,9--10]{lernenwiemaschinen_wahrscheinlichkeit_ki}\cite[Abs. 2--3]{tagesschau_ki_erfindet_jede_dritte_antwort}}, aber eben auch schwer nachvollziehbare\ct{fraunhofer_ki_blackbox}{Abs. 1--2} Mittel verlassen, um den Benutzer so unauffällig und -dringlich wie möglich beim Tippen in jeglichem Umfeld zu unterstützen \ct{languagetool_kuenstliche_intelligenz_bessere_korrektur}{Abs. 14--15}; ganz ohne probabilistische Verfahren kommen moderne Bildschirmtastaturen allerdings schwer aus: Sogar Tastaturen für Fernseher, die man nur mit Pfeiltasten kontrolliert, können optimiert werden \ctr{maxhalfordgithub_dynamic_onscreen_tv_keyboards}.
+Sprachkorrektur und -vorhersagen sind heute stark von auf künstlicher Intelligenz basierenden Methoden geprägt, die vor allem das Kontextverständnis enorm verbessern \ct{evoluce_fehlerkorrektur}{Abs. 7,12,15}. Trotzdem wird sich bei den heutigen Bildschirmtastaturen nicht nur auf dieses nur wahrscheinlich richtige\ctm{\cite[Abs. 2,9--10]{lernenwiemaschinen_wahrscheinlichkeit_ki}\cite[Abs. 2--3]{tagesschau_ki_erfindet_jede_dritte_antwort}}, aber auch schwer nachvollziehbare\ct{fraunhofer_ki_blackbox}{Abs. 1--2} Mittel verlassen, um den Benutzer so unauffällig und -dringlich wie möglich beim Tippen in jeglichem Umfeld zu unterstützen \ct{languagetool_kuenstliche_intelligenz_bessere_korrektur}{Abs. 14--15}; ganz ohne probabilistische Verfahren kommen moderne Bildschirmtastaturen allerdings schwer aus: Sogar Tastaturen für Fernseher, die man nur mit Pfeiltasten kontrolliert, können optimiert werden \ctr{maxhalfordgithub_dynamic_onscreen_tv_keyboards}.
 
 \subsubsection{Statistische Sprachmodelle}
 \label{sec:gegenwart:algorithmen_und_modelle:statistische_sprachmodelle}
 
+Algorithmen dieser Kategorie bauen regelmäßig auf einer großen Datenbasis auf, um verlässlich funktionieren zu können. Sie analysieren den gegebenen Datensatz und können die Häufigkeiten, mit denen bestimmte Wortfolgen oder -muster auftreten, erkennen.
 
+Der einfachste Ansatz für ein statistisches Modell ist das \term{N-Gramm}: Hierbei werden die Wahrscheinlichkeiten aller -- im Datensatz enthaltenen -- Wortfolgen von $N$ Worten festgestellt, sodass bei einer vorangegangenen Anzahl von $N-1$ Wörtern das nächste Wort, das im Datensatz am häufigsten nach diesen Wörtern stand, mit einer bestimmten Wahrscheinlichkeit vorhergesagt werden kann.
 
-\subsubsection{Word Embeddings}
-\label{sec:gegenwart:algorithmen_und_modelle:word_embeddings}
+Dabei kommen folgende Ausprägungen am meisten zur Anwendung:
 
+1. Unigramme (1-Gramme) -- wie häufig kommt ein einziges Wort vor --,
 
+2. Bigramme (2-Gramme) -- wie häufig folgt ein Wort auf ein anderes -- und 
 
-\subsubsection{Neuronale Netze}
-\label{sec:gegenwart:algorithmen_und_modelle:neuronale_netze}
+3. Trigramme (3-Gramme) bis 5-Gramme -- wie oft folgt auf eine Kette von Wörtern ein anderes.
 
-% ----- Bewährte Techniken und Designprinzipien ----
-\subsection{Bewährte Techniken und Designprinzipien}
-\label{sec:gegenwart:bewährte_techniken_und_designerprinzipien}
+Längere Ketten von Wörtern führen zu exponentiell mehr Kombinationsmöglichkeiten und bringen außerdem durch das N-Grammen generell fehlende Kontextverständnis keine nennenswerten Vorteile mehr \ct{?}{?}.
 
+Es gibt viele Abwandlungen, die verschiedene Schwächen von N-Grammen korrigieren sollen, wie beispielsweise bidirektionale oder exponentielle N-Gramme, die Häufigkeiten von sowohl folgenden als auch vorangehenden Wörtern zählen beziehungsweise die zusätzliche Mechanismen in die Wahrscheinlichkeitsrechnung einbauen, die den Kontext mehr berücksichtigen und zu schnelle Rückschlüsse aus den Daten verhindern sollen.
 
+Ein weiterer sehr populärer aber deutlich komplexerer Ansatz ist das \term{neuronale Netz}: Die Parameter einer Reihung von Matrixmultiplikationen werden mit einer idealerweise extrem großen Menge an Daten so lange angepasst, bis aus einer kodierten Wortfolge die Wahrscheinlichkeitsverteilung des darauf folgenden Wortes errechnet werden kann.
+
+Diesem Algorithmus sind in der Theorie keine Grenzen gesetzt, sowohl für die Länge der Wortfolge als auch für die Anzahl der Parameter als auch für die Genauigkeit der Ausgabe. In der Praxis erreichen Modelle allerdings nie perfekte Quoten, da ein gewisses finanzielles Interesse Unternehmen davon abhält, häufig kostenlos und unbegrenzt Benutzern zur Verfügung gestellten Modellen auch nur annähernd genug Rechenkapazität zu geben.
+
+Bevor die größten Modelle in ihrer Größe jedoch weiter wachsen, fehlt es als Erstes an einer ganz anderen Ressource: Trainingsdaten, besonders hochqualitative \ct{?}{?}.
+
+Trotzdem sind neuronale Netze älteren Modellen wie N-Grammen weit überlegen, weil sie Kontext in einer Menge und Art berücksichtigen können, die mit N-Grammen unrealistisch zu erreichen ist, selbst wenn theoretisch ein solches System erschaffen werden könnte.
+
+\subsubsection{Wissensbasierte Sprachmodelle}
+\label{sec:gegenwart:algorithmen_und_modelle:wissensbasierte_sprachmodelle}
+
+Algorithmen aus dieser Kategorie verlassen sich regelmäßig auf handgefertigte Regelsätze. Ein prominentes Beispiel ist hier LanguageTool, ein Rechtschreib- und Grammatikkorrektur-Programm, das sich neben einer neueren Künstlichen Intelligenz vor allem auf einen großen Regelkorpus stützt \ct{?}{?}.
+
+Regelbasierte Methoden sind heute allerdings nicht mehr wirklich relevant. Es gibt zu viele Sprachen, zu viele Regeln und vor allem zu viele Sonderfälle. Wissensbasierte Sprachmodelle können in der Theorie perfekte oder zumindest die besten Voraussagen leisten, sind jedoch in der Praxis sowohl im Aufbau als auch in der Instandhaltung und Pflege schlicht zu aufwändig.
 
 % ---------------- Herausforderungen ---------------
 \subsection{Herausforderungen}
@@ -199,12 +214,6 @@ Sprachkorrektur und -vorhersagen sind heute stark von auf künstlicher Intellige
 % ---------------- Mögliche Lösungen ---------------
 \subsection{Mögliche Lösungen}
 \label{sec:zukunft:moegliche_loesungen}
-
-
-
-% --------------------- Trends ---------------------
-\subsection{Trends}
-\label{sec:zukunft:trends}
 
 
 
