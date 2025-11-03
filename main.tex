@@ -74,8 +74,10 @@
 \pagebreak
 % ##################### Inhalt #####################
 
-% ==================== Anmerkung ===================
+% =================== Anmerkungen ==================
 \textbf{Im Folgenden sind jegliche maskulinen, femininen oder neutralen Wortformen, sofern der Kontext es zulässt und nicht explizit das Gegenteil angegeben ist, als generische Formen zu verstehen. Der Einfach- und Knappheit halber wird auf aufwändigere und in der Regel längere geschlechtsneutrale Formen verzichtet, auch mangels einer standardisierten Schreibweise.}
+
+\textbf{Um Absätze (\usfw{Abs.}) handelt es sich in Quellen, wenn es einen Paragrafen von Text, einem oder mehreren nummerierten oder nicht nummerierten Stichpunkten im Textzusammenhang bezeichnet, der in der in dem speziellen Text üblichen Art und Weise -- vor allem im Abstand -- vom Rest des Textes abgegrenzt ist. Ausgeschlossen sind also zum Beispiel Tabellen, Bildunterschriften oder Verweise auf andere Artikel, die bestimmten Quellen inne sein mögen, zu ihnen aber keinen nennenswerten Mehrwert beitragen.}
 
 % =================== Einleitung ===================
 \section{Einleitung}
@@ -168,29 +170,29 @@ Sprachkorrektur und -vorhersagen sind heute stark von auf künstlicher Intellige
 \subsubsection{Statistische Sprachmodelle}
 \label{sec:gegenwart:algorithmen_und_modelle:statistische_sprachmodelle}
 
-Algorithmen dieser Kategorie bauen regelmäßig auf einer großen Datenbasis auf, um verlässlich funktionieren zu können \ct{?}{?}. Sie analysieren den gegebenen Datensatz und können die Häufigkeiten, mit denen bestimmte Wortfolgen oder Muster auftreten, erkennen \ct{?}{?}.
+Algorithmen dieser Kategorie bauen regelmäßig auf einer großen Datenbasis auf, um verlässlich funktionieren zu können \ct{degruyterbrill_statistisch_basierte_sprachmodelle}{Abs. 1}. Sie analysieren den gegebenen Datensatz und können zum Beispiel die Häufigkeiten, mit denen bestimmte Wortfolgen oder Muster auftreten, erkennen \ct{baeldung_ngram}{Abs. 22}.
 
-Der einfachste Ansatz für ein statistisches Modell ist das \term{N-Gramm}: Hierbei werden die Wahrscheinlichkeiten aller -- im Datensatz enthaltenen -- Wortfolgen von $N$ Worten festgestellt, sodass bei einer vorangegangenen Anzahl von $N-1$ Wörtern das nächste Wort, das im Datensatz am häufigsten nach diesen Wörtern stand, mit einer bestimmten Wahrscheinlichkeit vorhergesagt werden kann. \ct{?}{?}
+Der einfachste Ansatz für ein statistisches Modell ist das \term{N-Gramm}: Hierbei werden die Wahrscheinlichkeiten aller -- im Datensatz enthaltenen -- Wortfolgen von $N$ Worten festgestellt, sodass bei einer vorangegangenen Anzahl von $N-1$ Wörtern das nächste Wort, das im Datensatz am häufigsten nach diesen Wörtern stand, mit einer bestimmten Wahrscheinlichkeit vorhergesagt werden kann. \ctm{\cite[Folie 20--25]{tuchemnitz_sprachmodellierung}\cite[Abs. 5, Punkt 1]{computerweekly_sprachmodellierung}}
 
-Dabei kommen folgende Ausprägungen am meisten zur Anwendung:
+Dabei kommen folgende Ausprägungen am meisten zur Anwendung \ct{baeldung_ngram}{Abs. 19}:
 
-1. Unigramme (1-Gramme) -- wie häufig kommt ein einziges Wort vor -- \ct{?}{?},
+1. Unigramme (1-Gramme) -- wie häufig kommt ein einziges Wort vor -- \ctm{\cite[Folie 22]{tuchemnitz_sprachmodellierung}\cite[Abs. 3, Punkt 1]{medium_ngrams_in_nlp}},
 
-2. Bigramme (2-Gramme) -- wie häufig folgt ein Wort auf ein anderes -- \ct{?}{?} und 
+2. Bigramme (2-Gramme) -- wie häufig folgt ein Wort auf ein anderes -- \ctm{\cite[Folie 24--25]{tuchemnitz_sprachmodellierung}\cite[Abs. 3, Punkt 2]{medium_ngrams_in_nlp}} und 
 
-3. Trigramme (3-Gramme) bis 5-Gramme -- wie oft folgt auf eine Kette von Wörtern ein anderes \ct{?}{?}.
+3. Trigramme (3-Gramme) bis 5-Gramme -- wie oft folgt auf eine Kette von Wörtern ein anderes \ctm{\cite[Folie 28]{tuchemnitz_sprachmodellierung}\cite[Abs. 3, Punkt 3--4]{medium_ngrams_in_nlp}}.
 
-Längere Ketten von Wörtern führen zu exponentiell mehr Kombinationsmöglichkeiten \ct{?}{?} und bringen außerdem durch das N-Grammen generell fehlende Kontextverständnis keine nennenswerten Vorteile mehr \ct{?}{?}.
+Längere Ketten von Wörtern führen zu exponentiell mehr Kombinationsmöglichkeiten, erfordern ebensoviel mehr Trainingsdaten und bringen außerdem durch das N-Grammen generell fehlende Kontextverständnis keine nennenswerten Vorteile mehr \ct{dataleap_geschichte_sprachmodellierung}{Abs. 2,8--9}.
 
-Es gibt viele Abwandlungen, die verschiedene Schwächen von N-Grammen korrigieren sollen, wie beispielsweise bidirektionale oder exponentielle N-Gramme, die Häufigkeiten von sowohl folgenden als auch vorangehenden Wörtern zählen \ct{?}{?} beziehungsweise die zusätzliche Mechanismen in die Wahrscheinlichkeitsrechnung einbauen, die den Kontext mehr berücksichtigen und zu schnelle Rückschlüsse aus den Daten verhindern sollen \ct{?}{?}.
+Es gibt viele Abwandlungen, die verschiedene Schwächen von N-Grammen korrigieren sollen, wie beispielsweise bidirektionale oder exponentielle N-Gramme, die Häufigkeiten von sowohl folgenden als auch vorangehenden Wörtern zählen \ct{computerweekly_sprachmodellierung}{Abs. 5, Punkt 2} beziehungsweise die zusätzliche Mechanismen in die Wahrscheinlichkeitsrechnung einbauen, die den Kontext mehr berücksichtigen und zu schnelle Rückschlüsse aus den Daten verhindern sollen \ctm{\cite[Abs. 5, Punkt 2]{computerweekly_sprachmodellierung}\cite[Folie 10]{oxford_maximum_entropy_modelling}}.
 
-Ein weiterer sehr populärer aber deutlich komplexerer Ansatz ist das \term{neuronale Netz}: Die Parameter einer Reihung von Matrixmultiplikationen werden mit einer idealerweise extrem großen Menge an Daten so lange angepasst, bis aus einer kodierten Wortfolge die Wahrscheinlichkeitsverteilung des darauf folgenden Wortes errechnet werden kann. \ct{?}{?}
+Ein weiterer sehr populärer aber deutlich komplexerer Ansatz ist das \term{neuronale Netz}: Vereinfacht gesagt werden die Parameter einer Reihung von Matrixmultiplikationen -- den Neuronen und Synapsen in unserem Gehirn nachgebildet \ctm{\cite[Abs. 2]{pangeanic_neuronale_netze}\cite[Folie 16--21]{hsmannheim_grundlagen_neuronale_netze}} -- mit einer idealerweise extrem großen Menge an Trainingsdaten so lange angepasst, bis aus einer kodierten Wortfolge die Wahrscheinlichkeitsverteilung des darauf folgenden Wortes \emph{errechnet} werden kann. \ctm{\cite[Abs. 2--4,Formel 3]{cornellbowers_neural_networks_matrix_multiply}\cite[Abs. 3--7]{pangeanic_neuronale_netze}}
 
-Diesem Algorithmus sind in der Theorie keine Grenzen gesetzt, sowohl für die Länge der Wortfolge als auch für die Anzahl der Parameter als auch für die Genauigkeit der Ausgabe \ct{?}{?}. In der Praxis erreichen Modelle allerdings nie perfekte Quoten \ct{?}{?}, da ein gewisses finanzielles Interesse Unternehmen davon abhält, häufig kostenlos und unbegrenzt Benutzern zur Verfügung gestellten\ct{?}{?} Modellen auch nur annähernd genug Rechenkapazität zu geben.
+Diesem Algorithmus sind \emph{in der Theorie} keine Grenzen gesetzt, sowohl für die Länge der Wortfolge als auch für die Anzahl der Parameter als auch für die Genauigkeit der Ausgabe \ctm{\cite[Abs. 1]{liquidnews_ki_grenzenlos}\cite[Abs. 5]{visusadvisory_starke_schwache_ki}\cite[Abs. 1--3]{ibm_artificial_general_intelligence}}. \emph{In der Praxis} erreichen Modelle allerdings nie perfekte Quoten \ctm{\cite[Abs. 1--6]{medium_escaping_trap_local_minima}\cite[Abs. 2--6]{futurism_openai_losing_money_on_chatgpt}}, da ein gewisses finanzielles Interesse Unternehmen davon abhält, häufig kostenlos oder unbegrenzt Benutzern zur Verfügung gestellten\ctm{\cite[\qt{Free},\qt{Pro} Abonnement]{openai_chatgpt_pricing}\cite[\qt{Paraphrasierung}]{languagetool_premium}} Modellen auch nur annähernd genug Rechenkapazität zu geben.
 
-Bevor die größten Modelle in ihrer Größe jedoch weiter wachsen, fehlt es als Erstes an einer ganz anderen Ressource: Trainingsdaten, besonders hochqualitative \ct{?}{?}.
+Bevor die größten Modelle in ihrer Größe jedoch weiter wachsen, fehlt es als Erstes an einer ganz anderen Ressource: Trainingsdaten, besonders hochqualitative \ctm{\cite[Abs. 1--2,28--29]{medium_solution_insufficient_llm_training_data}\cite[Abs. 1--2,37,51]{linkedin_chatgpt_consumed_internet}}.
 
-Trotzdem sind neuronale Netze älteren Modellen wie N-Grammen weit überlegen, weil sie Kontext in einer Menge und Art berücksichtigen können, die mit N-Grammen unrealistisch zu erreichen ist \ct{?}{?}, selbst wenn theoretisch ein solches System erschaffen werden könnte \ct{?}{?}.
+Trotzdem sind neuronale Netze älteren Modellen wie N-Grammen weit überlegen, weil sie Kontext in einer Menge und Art berücksichtigen können, die mit N-Grammen unrealistisch zu erreichen ist \ctm{\cite[Folie 46--49]{tuchemnitz_sprachmodellierung}\cite[Abs. 1,29]{towardsdatascience_neural_networks_over_ngram}}, selbst wenn theoretisch ein solches System mithilfe zusätzlicher Regeln erschaffen werden könnte \ct{geeksforgeeks_rule_based_nlp}{Abs. 1,4--5,8,10}.
 
 \subsubsection{Wissensbasierte Sprachmodelle}
 \label{sec:gegenwart:algorithmen_und_modelle:wissensbasierte_sprachmodelle}
