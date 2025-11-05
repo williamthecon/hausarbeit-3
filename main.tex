@@ -1,7 +1,7 @@
 % ###################### Form ######################
 \documentclass{article}
-\usepackage{geometry}
 
+\usepackage{geometry}
 \geometry{
  a4paper,
  total={130mm,257mm},
@@ -11,6 +11,8 @@
 
 \usepackage{setspace}
 \onehalfspacing
+
+\usepackage[utf8]{inputenc}
 
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
@@ -31,6 +33,8 @@
 
 \usepackage{dblfnote} % Footnotes in zwei Spalten
 \usepackage{footmisc} % Footnotes referieren
+
+\DeclareUnicodeCharacter{2248}{\ensuremath{\approx}} % ungefähr gleich außerhalb von Mathe
 
 % ##################### Befehle ####################
 \newcommand{\term}[1]{\textbf{#1}} % term
@@ -54,8 +58,8 @@
 
 % #################### Metadaten ###################
 \title{Untersuchung der Algorithmen zur Sprachkorrektur und -vorhersage am Beispiel der Bildschirmtastatur}
-\author{Vorname Nachnahme}
-\date{Oktober 2025}
+\author{Name Vorname}
+\date{Oktober -- November 2025}
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
@@ -74,11 +78,13 @@
 \section*{Hinweise}
 \addcontentsline{toc}{section}{Hinweise}
 
-\begin{enumerate}
+\begin{enumerate}\bfseries
 
-    \item \textbf{Im Folgenden sind jegliche maskulinen, femininen oder neutralen Wortformen, sofern der Kontext es zulässt und nicht explizit das Gegenteil angegeben ist, als generische Formen zu verstehen. Der Einfach- und Knappheit halber wird auf aufwändigere und in der Regel längere geschlechtsneutrale Formen verzichtet, auch mangels einer standardisierten Schreibweise.}
+    \item Im Folgenden sind jegliche maskulinen, femininen oder neutralen Wortformen, sofern der Kontext es zulässt und nicht explizit das Gegenteil angegeben ist, als generische Formen zu verstehen. Der Einfach- und Knappheit halber wird auf aufwändigere und in der Regel längere geschlechtsneutrale Formen verzichtet, auch mangels einer standardisierten Schreibweise.
     
-    \item \textbf{Um Absätze (\textit{Abs.}) handelt es sich in Quellen, wenn es einen Paragrafen von Text, einem oder mehreren nummerierten oder nicht nummerierten Stichpunkten im Textzusammenhang bezeichnet, der meist in der in dem speziellen Text üblichen Art und Weise -- vor allem im Abstand -- vom Rest des Textes abgegrenzt ist. Ausgeschlossen sind also zum Beispiel Tabellen, Bildunterschriften oder Verweise auf andere Artikel, Zusammenfassungen vor dem eigentlichen Textbeginn werden genauso nicht mitgezählt. Auf andere Teile des Textes kann explizit hingewiesen werden.}
+    \item Um Absätze (\textit{Abs.}) handelt es sich in Quellen, wenn es einen Paragrafen von Text, einem oder mehreren nummerierten oder nicht nummerierten Stichpunkten im Textzusammenhang bezeichnet, der meist in der in dem speziellen Text üblichen Art und Weise -- vor allem im Abstand -- vom Rest des Textes abgegrenzt ist. Ausgeschlossen sind also zum Beispiel Tabellen, Bildunterschriften oder Verweise auf andere Artikel, Zusammenfassungen vor dem eigentlichen Textbeginn werden genauso nicht mitgezählt. Auf andere Teile des Textes kann explizit hingewiesen werden.
+
+    \item Jegliche Quellen stehen in digitaler Form über die angegebenen Internetadressen zur Verfügung. Abweichungen durch Änderungen nach dem ebenfalls angegebenen Abrufdatum lassen sich durch die in der Bibliografie hinzugefügten \textit{archive}-Attribute -- Internetarchiv-Adressen oder Hinweise auf eine lokale Speicherung -- nachvollziehen und werden im Folgenden nicht berücksichtigt.
     
 \end{enumerate}
 
@@ -96,7 +102,7 @@ In der Realität funktioniert das meist nicht so gut, wie zahlreiche Nutzerberic
 
 Sie sind besonders dann nützlich, wenn ein falsch geschriebenes Wort gleich ähnlich zu verschiedenen Worten ist, die auch alle kontextuell möglich und gleich wahrscheinlich sind: Autokorrektur müsste in dem Fall ein zufälliges Wort auswählen; der Nutzer weiß besser, was er tippen will.
 
-Außerdem sind sie schon verfügbar, bevor überhaupt ein Buchstabe des nächsten Wortes getippt wurde \ct{curved_android_tastatur_autokorrektur_verbessern}{Abs. 3}, können also den Tippbedarf theoretisch drastisch verringern. In der Praxis hat ergeben, dass es meist länger dauert, den Vorschlag auszuwählen als das Wort zu Ende zu tippen \ct{ethzuerich_smartphone_typing_speeds}{Abs. 2}.
+Außerdem sind sie schon verfügbar, bevor überhaupt ein Buchstabe des nächsten Wortes getippt wurde \ct{curved_android_tastatur_autokorrektur_verbessern}{Abs. 3}, können also den Tippbedarf theoretisch drastisch verringern. Die Praxis hat jedoch ergeben, dass es meist länger dauert, den Vorschlag auszuwählen als das Wort zu Ende zu tippen \ct{ethzuerich_smartphone_typing_speeds}{Abs. 2}.
 
 % -------------------- Überblick -------------------
 \subsection{Überblick}
@@ -134,7 +140,7 @@ In der folgenden Arbeit werde ich mich zuerst kurz mit den Grundlagen der Forsch
 
 Anschließend werde ich Herausforderungen bei der Sprachkorrektur und -vorher\-sage aufzeigen (\autoref{sec:gegenwart:herausforderungen}) und mögliche Lösungsansätze für die Zukunft erklären (\autoref{sec:zukunft:moegliche_loesungen}). Dabei wird es sowohl um bereits bestehende, aber noch unausgeprägte als auch theoretisch finalisierte, aber praktisch noch nicht umgesetzte als auch nur theoretisierte Konzepte gehen, deren verschiedene Vor- und Nachteile ich ebenfalls erläutern werde.
 
-Momentane Entwicklungen sowie bestehende Forschungsfragen werde ich kurz anschneiden (\autoref{sec:zukunft:technische_ausblicke}, \ref{sec:zukunft:forschungs_und_praxisfragen}), um dann zu einer Art Fazit beziehungsweise einer Zusammenfassung zu kommen (\autoref{sec:zusammenfassung}).
+Bestehende Forschungsfragen werde ich kurz anschneiden (\autoref{sec:zukunft:forschungs_und_praxisfragen}), um dann zu einer Art Fazit beziehungsweise einer Zusammenfassung zu kommen (\autoref{sec:zusammenfassung}).
 
 Zuletzt werde ich einen Ausblick auf meine Facharbeit geben (\autoref{sec:ausblick_auf_die_facharbeit}), über spezifische Ziele theoretisieren, mögliche Methoden zur Evaluation der Wirksamkeit meiner Lösungen darstellen und mich klar von Problemen abgrenzen, deren Lösung über den Rahmen hinausgeht.
 
@@ -146,9 +152,7 @@ Der Bereich der Sprachverarbeitung oder auch Computerlinguistik kombiniert als T
 
 Er findet vorwiegend Anwendung in der Sentiment-Analyse, bei Chatbots und automatisierten Sprachübersetzungen. \ct{evoluce_sprachverarbeitung}{Abs. 11}
 
-% ---------------- Wichtige Konzepte ---------------
-\subsection{Wichtige Konzepte}
-\label{sec:grundlagen_sprachverarbeitung:wichtige_konzepte}
+\begin{center}***\end{center}
 
 Bevor in der Sprachverarbeitung ein Algorithmus mit einem Text etwas anfangen kann, muss dieser zuerst in eine Form gebracht werden, die für Maschinen lesbarer und besser verarbeitbar ist als die für uns Menschen gewöhnliche Aneinanderreihung von Zeichen. Auch Menschen nehmen Buchstaben nicht mehr als einzelne Zeichen wahr, sondern als übergeordnete Buchstabengruppen -- Worte \ct{satzzeichen_wie_gehirn_woerter_erfasst}{Abs. 5}.
 
@@ -166,7 +170,7 @@ Am Beispiel großer Sprachmodelle im Bereich der künstlichen Intelligenz nach h
 
 Das Ergebnis dieser Schritte \usfw{enthält} - wenn auch nicht für Menschen verständlich -- fast alle Informationen, die es zum Eingabetext geben kann -- inklusive der Verbesserungen von Unklarheiten und Fehlern --, nur in sehr kondensierter Form. Vereinfacht gesagt können große Sprachmodelle hiervon direkt ihre Antwort ableiten. \ct{patrickstolp_transformer}{Abs. 22--23}
 
-Auch Sprachkorrektur und -vorhersagen nutzen diesen Prozess, in der Regel ist ein Teil ihrer Funktionsweise sogar -- abgesehen von seiner Größe -- in seiner algorithmischen Grundstruktur genau wie bei großen Sprachmodellen. Schließlich ist, das nächste Wort vorherzusagen, wie es die Sprachvorhersage tut, genau dasselbe, was diese Modelle machen, nur mit \emph{einem} nächsten Wort anstatt einer vollständigen Antwort. \ct{datacamp_small_language_models}{Abs. 1,11,13,15,30}
+Auch Sprachkorrektur und -vorhersagen nutzen diesen Prozess, in der Regel ist ein Teil ihrer Funktionsweise sogar -- abgesehen von seiner Größe -- in seiner algorithmischen Grundstruktur genau wie bei großen Sprachmodellen. Schließlich ist, das nächste Wort vorherzusagen, wie es die Sprachvorhersage tut, genau dasselbe, was diese Modelle machen, nur mit \emph{einem} nächsten Wort anstatt einer vollständigen Antwort. \ct{datacamp_small_language_models}{Abs. 1,11,13,15-18,31--33}
 
 % ==================== Gegenwart ===================
 \section{Gegenwart}
@@ -189,11 +193,11 @@ Dabei kommen folgende Ausprägungen am meisten zur Anwendung \ct{baeldung_ngram}
 
 \begin{itemize}
 
-    \item Unigramme (1-Gramme) -- wie häufig kommt ein einziges Wort vor -- \ctm{\cite[Folie 22]{tuchemnitz_sprachmodellierung}\cite[Abs. 3, Punkt 1]{medium_ngrams_in_nlp}},
+    \item \term{Unigramme (1-Gramme)} -- wie häufig kommt ein einziges Wort vor -- \ctm{\cite[Folie 22]{tuchemnitz_sprachmodellierung}\cite[Abs. 3, Punkt 1]{medium_ngrams_in_nlp}},
 
-    \item Bigramme (2-Gramme) -- wie häufig folgt ein Wort auf ein anderes -- \ctm{\cite[Folie 24--25]{tuchemnitz_sprachmodellierung}\cite[Abs. 3, Punkt 2]{medium_ngrams_in_nlp}} und 
+    \item \term{Bigramme (2-Gramme)} -- wie häufig folgt ein Wort auf ein anderes -- \ctm{\cite[Folie 24--25]{tuchemnitz_sprachmodellierung}\cite[Abs. 3, Punkt 2]{medium_ngrams_in_nlp}} und 
 
-    \item Trigramme (3-Gramme) bis 5-Gramme -- wie oft folgt auf eine Kette von Wörtern ein anderes \ctm{\cite[Folie 28]{tuchemnitz_sprachmodellierung}\cite[Abs. 3, Punkt 3--4]{medium_ngrams_in_nlp}}.
+    \item \term{Trigramme (3-Gramme)} bis \term{5-Gramme} -- wie oft folgt auf eine Kette von Wörtern ein anderes \ctm{\cite[Folie 28]{tuchemnitz_sprachmodellierung}\cite[Abs. 3, Punkt 3--4]{medium_ngrams_in_nlp}}.
     
 \end{itemize}
 
@@ -212,7 +216,7 @@ Trotzdem sind neuronale Netze älteren Modellen wie N-Grammen weit überlegen, w
 \subsubsection{Wissensbasierte Sprachmodelle}
 \label{sec:gegenwart:algorithmen_und_modelle:wissensbasierte_sprachmodelle}
 
-Algorithmen aus dieser Kategorie verlassen sich regelmäßig auf handgefertigte Regelsätze \ct{tuchemnitz_sprachmodellierung}{Folie 4}, können diese aber auch größtenteils selbstständig aus vorhandenen hochqualitativen Daten ableiten \ctm{\cite[Abs. 6, Punkt 2]{geeksforgeeks_rule_based_system_in_ai}\cite[Abs. 5, Punkt 6]{onlinetutorialhub_rule_based_nlp}}. Ein prominentes Beispiel ist hier LanguageTool, ein Rechtschreib- und Grammatikkorrektur-Programm, das sich neben einer neueren Künstlichen Intelligenz vor allem auf einen großen Regelkorpus stützt \ctm{\cite[14--15]{languagetool_kuenstliche_intelligenz_bessere_korrektur}\cite{languagetool_community_error_rules}}.
+Algorithmen aus dieser Kategorie verlassen sich regelmäßig auf handgefertigte Regelsätze\ct{tuchemnitz_sprachmodellierung}{Folie 4}, können diese aber auch größtenteils selbstständig aus vorhandenen hochqualitativen Daten ableiten. \ctm{\cite[Abs. 6, Punkt 2]{geeksforgeeks_rule_based_system_in_ai}\cite[Abs. 5, Punkt 6]{onlinetutorialhub_rule_based_nlp}} Ein prominentes Beispiel ist hier LanguageTool, ein Rechtschreib- und Grammatikkorrektur-Programm, das sich neben einer neueren Künstlichen Intelligenz vor allem auf einen großen Regelkorpus stützt \ctm{\cite[14--15]{languagetool_kuenstliche_intelligenz_bessere_korrektur}\cite{languagetool_community_error_rules}}.
 
 Regelbasierte Methoden sind heute allerdings nicht mehr wirklich relevant \ctm{\cite[Abs. 14]{languagetool_kuenstliche_intelligenz_bessere_korrektur}\cite[Abs. 4,6,9--15]{kitrainingszentrum_regelbasierte_ki_vs_llm}}. Es gibt zu viele Sprachen, zu viele Regeln und vor allem zu viele Sonderfälle. Wissensbasierte Sprachmodelle können \emph{in der Theorie} perfekte oder -- abhängig vom Anwendungsfall -- zumindest die besten Voraussagen leisten \ctm{\cite[Abs. 6,13--14]{onlinetutorialhub_rule_based_nlp}\cite[Abs. 22]{geeksforgeeks_rule_based_system_in_ai}}, sind jedoch in der Praxis sowohl im Aufbau als auch in der Instandhaltung und Pflege schlicht zu aufwändig \ctm{\cite[Abs. 4,17]{onlinetutorialhub_rule_based_nlp}\cite[Abs. 23]{geeksforgeeks_rule_based_system_in_ai}}.
 
@@ -224,15 +228,15 @@ Auf jeden Fall steht fest, dass die Sprachkorrektur früher als die Sprachvorher
 
 Drei große Herausforderungen, vor denen die Entwickler der Sprachkorrektur stehen, sind:
 
-\begin{enumerate}
+\begin{description}
 
-    \item \label{par:herausforderungen:1_kontext}\term{Kontext}: Der Algorithmus muss sowohl den Satz, den Paragrafen und den gesamten Text als auch den genauen Softwarekontext kennen. Während Ersteres zwar grundsätzlich schon durch neuronale Netze mehr oder weniger erfolgreich angegangen wird \ctm{\cite[Abs. 5, Punkt 5]{computerweekly_sprachmodellierung}\cite[Abs. 1,3]{geeksforgeeks_large_language_model}}, braucht es für Letzteres erst einmal eine genormte, allgemein akzeptierte und implementierte technische Grundlage --- kein einziges Adjektiv trifft bis jetzt zu, selbst wenn die Android-API eine technische Möglichkeit für Apps seit 2009 bereitstellt \ctsr{androiddeveloper_api_inputmethod_editorinfo_fieldid,androiddeveloper_api_inputmethod_editorinfo_fieldname}. Dabei wird so gut wie jede Person zum Beispiel an verschiedene andere Personen auf verschiedene Arten Nachrichten schreiben und wieder anders digitales Tagebuch führen.
+    \item[Kontext] Der Algorithmus muss sowohl den Satz, den Paragrafen und den gesamten Text als auch den genauen \usfw{Softwarekontext} kennen. Während Ersteres zwar grundsätzlich schon durch neuronale Netze mehr oder weniger erfolgreich angegangen wird \ctm{\cite[Abs. 5, Punkt 5]{computerweekly_sprachmodellierung}\cite[Abs. 1,3]{geeksforgeeks_large_language_model}}, braucht es für Letzteres erst einmal eine genormte, allgemein akzeptierte und implementierte technische Grundlage --- kein einziges Adjektiv trifft bis jetzt zu, selbst wenn die Android-API eine technische Möglichkeit für Apps seit 2009 bereitstellt \ctsr{androiddeveloper_api_inputmethod_editorinfo_fieldid, androiddeveloper_api_inputmethod_editorinfo_fieldname}. Dabei wird so gut wie jede Person zum Beispiel an verschiedene andere Personen auf verschiedene Arten Nachrichten schreiben und wieder anders digitales Tagebuch führen.
 
-    \item \term{Mischsprache}: Viele Nutzer berichten in den sozialen Medien, dass sie häufig mehrere Sprachen in einem Text vereinen und Korrektur dabei viele Probleme verursacht \ctsr{reddit_autocorrect_multiple_languages_1, reddit_autocorrect_multiple_languages_2, reddit_autocorrect_multiple_languages_3, reddit_autocorrect_multiple_languages_4}. Der Korrekturalgorithmus steht dort vor einer besonders komplizierten Aufgabe, denn Wörterbücher verschiedener Sprachen lassen sich sicher vereinen \ct{microsoft_swiftkey_mit_mehreren_sprachen}{Abs. 1}, Grammatik und Kontext sind allerdings deutlich schwieriger zu kombinieren, schließlich sind Vorhersagemodelle für jede Sprache einzeln trainiert -- man muss für jede neue Sprache ein Sprachpaket inklusive Wörterbuch und Sprachmodell herunterladen \ct{microsoft_swiftkey_mit_mehreren_sprachen}{Abs. 6--12}. Im Regelfall wird hier immer gerade das Modell verwendet, dessen Sprache der Algorithmus dort vermutet \ctm{\cite[Abs. 2]{microsoft_swiftkey_mit_mehreren_sprachen}\cite[Abs. 6]{chrome_adaptive_spell_checking_multilingual}}, was allerdings nur dann wirklich gut funktioniert, wenn pro Satz eine Sprache verwendet wird \ct{chrome_adaptive_spell_checking_multilingual}{Abs. 7,15--17}.
+    \item[Mischsprache] Viele Nutzer berichten in den sozialen Medien, dass sie häufig mehrere Sprachen in einem Text vereinen und Korrektur dabei viele Probleme verursacht \ctsr{reddit_autocorrect_multiple_languages_1, reddit_autocorrect_multiple_languages_2, reddit_autocorrect_multiple_languages_3, reddit_autocorrect_multiple_languages_4}. Der Korrekturalgorithmus steht dort vor einer besonders komplizierten Aufgabe, denn Wörterbücher verschiedener Sprachen lassen sich sicher vereinen \ct{microsoft_swiftkey_mit_mehreren_sprachen}{Abs. 1}, Grammatik und Kontext sind allerdings deutlich schwieriger zu kombinieren, schließlich sind Vorhersagemodelle für jede Sprache einzeln trainiert -- man muss für jede neue Sprache ein Sprachpaket inklusive Wörterbuch und Sprachmodell herunterladen \ct{microsoft_swiftkey_mit_mehreren_sprachen}{Abs. 6--12}. Im Regelfall wird hier immer gerade das Modell verwendet, dessen Sprache der Algorithmus dort vermutet \ctm{\cite[Abs. 2]{microsoft_swiftkey_mit_mehreren_sprachen}\cite[Abs. 6]{chromium_adaptive_spell_checking_multilingual}}, was allerdings nur dann wirklich gut funktioniert, wenn pro Satz eine Sprache verwendet wird \ct{chromium_adaptive_spell_checking_multilingual}{Abs. 7,15--17}.
 
-    \item \term{Schreibstil}: Individuelle Wörter, Abkürzungen oder Wendungen, die nicht im gewöhnlichen oder durchschnittlichen Sprachgebrauch in der Form oder Häufigkeit vorkommen, sollen zwar durch lernfähige Methoden berücksichtigt werden \ctm{\cite{google_making_touchscreen_keyboards_adaptive}\cite[Abs. 1--2]{androidpolice_gboard_personal_dictionary}\cite[Abs. 3--4,39,41,49,52]{linkedin_surveilling_users_adaptive_soft_keyboards}}, das muss aber nicht immer so funktionieren; dabei kann sowohl zu wenig als auch zu viel oder aber nicht in den richtigen Momenten Rücksicht genommen werden.
+    \item[Schreibstil] Individuelle Wörter, Abkürzungen oder Wendungen, die nicht im gewöhnlichen oder durchschnittlichen Sprachgebrauch in der Form oder Häufigkeit vorkommen, sollen zwar durch lernfähige Methoden berücksichtigt werden \ctm{\cite{google_making_touchscreen_keyboards_adaptive}\cite[Abs. 1--2]{androidpolice_gboard_personal_dictionary}\cite[Abs. 3--4,39,41,49,52]{linkedin_surveilling_users_adaptive_soft_keyboards}}, das muss aber nicht immer so funktionieren; dabei kann sowohl zu wenig als auch zu viel oder aber nicht in den richtigen Momenten Rücksicht genommen werden.
 
-\end{enumerate}
+\end{description}
 
 Die letzte, vergleichsweise kleine Herausforderung liegt in dem Wechsel von externer Berechnung, der Abhängigkeit von der Cloud, hin zur lokalen Berechnung \ct{androidcentral_ondevice_ai_processing}{Abs. 1--5}. Das hat verschiedene Vorteile, wie beispielsweise mehr Privatsphäre, schnellere Ergebnisse und Unabhängigkeit von der Internetverbindung \ctm{\cite[Abs. 7, Punkt 1--3]{androidcentral_ondevice_ai_processing}\cite[Abs. 8, Punkt 1--3]{microsoft_ondevice_ai_windows_ai_foundry}}, gleichzeitig aber auch Nachteile: Große Sprachmodelle, wie sie heute benutzt werden, können technisch bedingt nicht auf schwachen Konsumentenmobilgeräten laufen; das Verkleinern verringert die Genauigkeit der Ergebnisse \ct{phonearena_ultimate_guide_smartphone_ai}{Abs. 23--26}.
 
@@ -247,33 +251,54 @@ Die letzte, vergleichsweise kleine Herausforderung liegt in dem Wechsel von exte
 \subsubsection{Kontext}
 \label{sec:zukunft:moegliche_loesungen:kontext}
 
-\textit{Ideen: auf technische Grundlage drängen/diese schaffen, bessere/diversere Trainingsdaten, mehr regelbasierte Ansätze}
+Damit Algorithmen sich besser an den Textkontext anpassen können, lässt sich nicht viel ändern: Künstliche Intelligenz wird immer weiter erforscht werden, neuronale Netze werden weiter wachsen\ctm{\cite[Abs. 11,13--15]{theneuralwire_evolution_neural_networks}\cite[Abs. 50,54--55]{codewave_history_development_neural_networks}} und die ebenfalls noch\ct{mit_death_of_moores_law}{Abs. 2} wachsende Prozessorleistung wird immer mehr möglich machen, sowohl auf großen Servern als auch auf Mobilgeräten.
+
+Das alles ist allerdings nichts Weltbewegendes, die Fortschrittskurve wird vermutlich, wie in den meisten technischen Bereichen \ct{medium_technologys_favorite_s_curve}{Abs. 1}, immer weiter abflachen. Der Benutzer wird nur graduell leicht bessere und genauere Vorschläge und Korrekturen erleben. Vielleicht nehmen wir automatische Textkorrektur auch nur -- durch unsere natürliche Neigung zu Negativem beeinflusst \ct{toolifyai_uncovering_frustations_of_autocorrect}{Abs. 4--5} -- als schlechter wahr, als sie eigentlich ist, und sind unsere Ansprüche an ein Werkzeug wie Autokorrektur, das jedes einzelne Wort unserer Texte abändern kann, nicht weniger als perfekt.\ctm{\cite[Abs. 1--3,19--21]{tomsguide_autocorrect_turned_off_test}\cite[Abs. 17]{styleblueprint_when_autocorrect_goes_wrong}}
+
+Der \usfw{Softwarekontext} ist ebenfalls schwer zu berücksichtigen: App-Entwicklern ist auf allen Betriebssystemen derartiger Freiraum gelassen, dass ihnen eine einheitliche technische Erkennungskomponente für Eingabefelder bei vielen Apps wohl gar nicht aufzuzwingen wäre. Beispiele, die viele Fragen aufwerfen, sind hier:
+
+\begin{itemize}
+
+    \item Textnachrichten-Apps --- Schreibt man anders an denselben Benutzer in verschiedenen Apps? Wie erkennt man denselben Benutzer über Apps hinweg?
+    
+    \item Notizen-Apps --- Um was für eine Art von Text (Tagebuch, Aufsatz, Satire) handelt es sich? Wie unterschiedlich schreibt man in unterschiedlichen Textarten?
+    
+    \item Spiele mit Texteingabe --- Braucht man überhaupt Autokorrektur oder Vorschläge in Spielen (zum Beispiel Wortspiele, Spiele mit Textnachrichten-Funktion)? Wie erkennt man, wann man das tut und wann nicht?
+    
+    \item Social-Media-Apps --- Wie differenziert man zwischen privaten und öffentlichen, adressierten und nicht adressierten Nachrichten? Wie schreibt man an verschiedene Gruppen von Personen?
+    
+\end{itemize}
+
+Es wäre zwar durchaus möglich, jedem Eingabefeld von der Betriebssystem-Seite aus eine einzigartige Identifikation zu geben, dieses Problem scheint aber erstens gar nicht von Android in irgendeiner Form verfolgt zu werden und zweitens nicht unbedingt eine Lösung zu sein, da Tastaturen dann, ohne mehr Informationen über jedes Eingabefeld als dessen Identifikation und die zugehörige App zu kennen, eine wahrscheinlich unnötig starke Separierung verschiedener \usfw{Softwarekontexte} aufgrund mangelnder erkennbarer Zusammenhänge vornehmen müssten, die dem Nutzer letztendlich nicht zugutekäme, es sei denn, er würde in jedem dieser Kontexte sehr ausführlich und angemessen vielfältig schreiben.
 
 \subsubsection{Mischsprache}
 \label{sec:zukunft:moegliche_loesungen:mischsprache}
 
-\textit{Ideen: mehr Trainingsdaten, Analyse von Gebrauch => gezielte Implementierung}
+Diese Herausforderung hat eine deutlich einfachere -- wenn auch nicht einfache -- Lösung als das Kontextproblem: Weil dieses Feld schlicht noch zu unentwickelt ist, fehlt es an guten \emph{wirklich} multilingualen Algorithmen, die vor allen Dingen mit realen oder zumindest sehr realistischen Daten an eine Vielzahl von Arten, in denen Nutzer Sprachen benutzen und kombinieren, trainiert werden müssen.
 
-\subsubsection{Schreibstil und Minderheiten}
+Der momentane Ansatz, die Sprache für jeden Satz oder Paragrafen zu bestimmen und dann auf der vermeintlich erkannten einzelnen Sprache zu beharren, ist für den geschäftlichen Kontext vielleicht in Ordnung, da hier sehr regelkonform und formal mehrere Sprachen im Sinne der Internationalität in einem Text kombiniert werden, ist jedoch nach den Nutzerberichten nicht unbedingt für den privaten Gebrauch geeignet.
+
+Aus diesem Grund ist für die multilingualen Algorithmen, an denen zumindest Google schon arbeitet \ct{chromium_adaptive_spell_checking_multilingual}{Abs. 4,16}, wichtig, dass sie in intensiver Zusammenarbeit mit der gesamten oder zumindest einer großen und sehr repräsentativen Gruppe betroffener Nutzer, beziehungsweise -- in Google-Manier -- auf Basis ihrer gesamten Nutzerdaten entwickelt werden, um die größte Zielgruppe sicher zu befriedigen.
+
+\subsubsection{Schreibstil}
 \label{sec:zukunft:moegliche_loesungen:schreibstil}
 
-\textit{Ideen: separate, auswählbare Algorithmen entwickeln, nicht einen generellen für alle, weitgehende Studie zur Analyse verschiedener Schreibstile}
+Die Anpassungsfähigkeit der Tastaturen an persönliche Schreibstile lässt sich auf ganz ähnliche Weise wie die an Mischsprachen verbessern: Einbezug der betroffenen Benutzer oder ihrer Daten ist meiner Ansicht nach elementar für die Entwicklung von Algorithmen, die solch chaotisches, undefiniertes und unlogisches Schreibverhalten vorhersagen können sollen.
 
-\subsubsection{Minderheiten}
-\label{sec:zukunft:moegliche_loesungen:minderheiten}
+Unter dem Gesichtspunkt der Privatsphäre lassen sich sicherlich einige Bedenken hinsichtlich der vorgeschlagenen Vorgehensweise äußern, die bereits existierenden Konzepte für anonyme, föderierte Entwicklung und konstante Anpassung werden diese jedoch schnell beseitigen \ct{getmaxim_privacy_preserving_autocorrect_gboard}{Abs. 25}:
 
-\textit{Ideen: (s. Punkt 3)}
+Google hat das Problem bereits vor langer Zeit zumindest größtenteils gelöst. GBoard, die Bildschirmtastatur von Google, nutzt \usfw{federated learning} und \usfw{differential privacy}, um gleichzeitig so privat, individuell und generell wie möglich ihren Vorhersage- und Korrekturalgorithmus zu trainieren \ctm{\cite[Abs. 5--7,14]{getmaxim_privacy_preserving_autocorrect_gboard}\cite[Abs. 2--5]{google_federated_learning}\cite[Abs. 10,12--15]{google_private_federated_learning_gboard}}. Das einzige Problem stellt die Antiproportionalität von Individualität und Privatsphäre dar: Die Glättung von zu individuellen und somit identifizierbaren Daten schützt zwar die Privatsphäre, wirkt sich aber negativ auf die Fähigkeit des Modells auf, genau diese individuellen Merkmale zu lernen. \ctm{\cite[Abs. 15--22]{getmaxim_privacy_preserving_autocorrect_gboard}\cite[Abs. 9--11]{google_federated_learning}\cite[Abs. 4--7,12]{google_private_federated_learning_gboard}}
+
+Hier werden dann künstlich erzeugte Trainingsdaten dazu benutzt, auf anonymem Wege Nutzen aus den normalerweise versteckten, zu individuellen Daten zu ziehen, indem große Datensätze künstlicher falscher Texte und Korrekturen mithilfe großer Sprachmodelle generiert werden, womit wiederum neue, kleinere Sprachmodelle trainiert werden. Diese Modelle werden dann -- vereinfacht gesagt -- auf Nutzerbasis fein angepasst, jedoch so, dass sich keine individuellen Beiträge bemessen lassen. \ct{getmaxim_privacy_preserving_autocorrect_gboard}{Abs. 23--46}
 
 \subsubsection{Lokalisierung}
 \label{sec:zukunft:moegliche_loesungen:lokalisierung}
 
-\textit{Ideen: Forschung und Verbesserung von SLMs, mehr regelbasierte Ansätze, Verbesserung der Hardware (KI-Chips für Gemini sind sowieso schon in Handys)}
+Die Lokalisierung stellt gewissermaßen gar keine Herausforderung mehr dar. Es handelt sich grundsätzlich nur noch um eine Frage der Zeit, bis viele KI-Anwendung auf den meisten Mobilgeräten laufen können \ct{androidcentral_ondevice_ai_processing}{Abs. 1--3,12--15}; die neusten Google Pixel Modelle unterstützen sogar schon Googles Gemini Nano Modell, eine deutlich verkleinerte Version des großen Modells \ct{androidauthority_gemini_nano}{Abs. 3--4}, lokal zu laufen \ct{google_gemini_nano_pixel_10_updates}{Abs. 2}.
 
-% -------------- Technische Ausblicke --------------
-\subsection{Technische Ausblicke}
-\label{sec:zukunft:technische_ausblicke}
+Eine große Rolle werden auch für andere Anwendungen kleine Sprachmodelle und ihre Gegenstücke in anderen Bereichen der künstlichen Intelligenz spielen, die zum Beispiel mithilfe größerer Modelle für spezifische Anwendungszwecke trainiert werden können und dabei ihre \textit{Vorbilder} sogar übertreffen. \ct{datacamp_small_language_models}{Abs. 1--2,16--18}
 
-\textit{Hardware auch auf Mobilgeräten immer mehr für KI geeignet, SLMs zunehmend realisierbarer, bessere Trainingsdaten(?)}
+Regelbasierte Ansätze sind zwar in der Hinsicht, dass sie meist keine so großen Mengen Arbeitsspeicher benötigen, wie Sprachmodelle es tun \ct{uniteai_understanding_llm_parameters_memory_requirements}{Abs. 31--36,62--68}, gut dafür geeignet, auf Mobilgeräten zu laufen, wirklich gute Modelle erfordern hier aber -- ähnlich wie große statistische Sprachmodelle \ctm{\cite[Abs. 1--2]{mindverse_speicheranforderungen_grosser_sprachmodelle}\cite[Abs. 27--30,62--68]{uniteai_understanding_llm_parameters_memory_requirements}} -- eine sehr große Menge an festem Speicher, da die verschiedensten sprachlichen Regeln und \usfw{Hilfsmittel}, wie beispielsweise Ontologien\ct{aaron_ontologie_verbessert_antwortqualitaet_llm}{Abs. 1, 3--5}, Wissensgraphen\ct{ibm_knowledge_graph}{Abs. 1, 4--5,8--9} oder große N-Gramm-Sammlungen\ct{google_books_ngrams_datasetsv3}{≈ 1,29 TB}, teilweise große Datensätze der Vollständigkeit halber benötigen.
 
 % ---------- Forschungs- und Praxisfragen ----------
 \subsection{Forschungs- und Praxisfragen}
@@ -325,7 +350,7 @@ Die letzte, vergleichsweise kleine Herausforderung liegt in dem Wechsel von exte
 
 \subsection*{1. Versicherung der selbstständigen Anfertigung der Hausarbeit}
 
-Hiermit erkläre ich, dass ich die vorliegende Hausarbeit selbstständig angefertigt, keine anderen als die angegebenen Hilfsmittel zu ihrem Verfassen benutzt und die Stellen der Hausarbeit, die im Wortlaut oder im wesentlichen Inhalt aus anderen Werken entnommen wurden, mit genauer Quellenangabe kenntlich gemacht habe. Verwendete Informationen aus dem Internet sind dem Fachlehrer vollständig als Ausdruck beziehungsweise digital zur Verfügung gestellt worden.
+Hiermit erkläre ich, dass ich die vorliegende Hausarbeit selbstständig angefertigt, keine anderen als die angegebenen Hilfsmittel zu ihrem Verfassen -- explizit nicht zur Recherche -- benutzt und die Stellen der Hausarbeit, die im Wortlaut oder im wesentlichen Inhalt aus anderen Werken entnommen wurden, mit genauer Quellenangabe kenntlich gemacht habe. Verwendete Informationen aus dem Internet sind dem Fachlehrer vollständig als Ausdruck beziehungsweise digital zur Verfügung gestellt worden.
 
 \vspace{1.5em}
 
