@@ -58,7 +58,7 @@
 
 % #################### Metadaten ###################
 \title{Untersuchung der Algorithmen zur Sprachkorrektur und -vorhersage am Beispiel der Bildschirmtastatur}
-\author{Vornahme Nachname}
+\author{JF}
 \date{Oktober -- November 2025}
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -286,18 +286,18 @@ Aus diesem Grund ist für die multilingualen Algorithmen, an denen zumindest Goo
 \subsection{Schreibstil}
 \label{sec:zukunft_und_moegliche_loesungen:schreibstil}
 
-Die Anpassungsfähigkeit der Tastaturen an persönliche Schreibstile lässt sich auf ganz ähnliche Weise wie die an Mischsprachen verbessern: Der Einbezug der betroffenen Benutzer oder ihrer Daten ist meiner Ansicht nach elementar für die Entwicklung von Algorithmen, die solch chaotisches, undefiniertes und unlogisches Schreibverhalten vorhersagen können sollen.
+Die Anpassungsfähigkeit der Tastaturen an persönliche Schreibstile lässt sich auf ganz ähnliche Weise wie die an Mischsprachen verbessern: Der Einbezug der betroffenen Benutzer oder ihrer Daten ist -- meiner Ansicht nach -- elementar für die Entwicklung von Algorithmen, die solch chaotisches, undefiniertes und unlogisches Schreibverhalten vorhersagen können sollen.
 
-Unter dem Gesichtspunkt der Privatsphäre lassen sich sicherlich einige Bedenken hinsichtlich der vorgeschlagenen Vorgehensweise äußern, die bereits existierenden Konzepte für anonyme, föderierte Entwicklung und konstante Anpassung werden diese jedoch schnell beseitigen \ct{getmaxim_privacy_preserving_autocorrect_gboard}{Abs. 25}:
+Unter dem Gesichtspunkt der Privatsphäre lassen sich sicherlich einige Bedenken hinsichtlich der vorgeschlagenen Vorgehensweise äußern, die bereits existierenden Konzepte für anonyme, föderierte Entwicklung und konstante Anpassung werden diese jedoch schnell beseitigen:\ct{getmaxim_privacy_preserving_autocorrect_gboard}{Abs. 25}
 
-Google hat das Problem bereits vor langer Zeit zumindest größtenteils gelöst. GBoard, die Bildschirmtastatur von Google, nutzt \usfw{federated learning} und \usfw{differential privacy}, um gleichzeitig so privat, individuell und generell wie möglich ihren Vorhersage- und Korrekturalgorithmus zu trainieren.\ctm{\cite[Abs. 5--7,14]{getmaxim_privacy_preserving_autocorrect_gboard}\cite[Abs. 2--5]{google_federated_learning}\cite[Abs. 10,12--15]{google_private_federated_learning_gboard}} Das einzige Problem stellt die Antiproportionalität von Individualität und Privatsphäre dar: Die Glättung von zu individuellen und somit identifizierbaren Daten schützt zwar die Privatsphäre, wirkt sich aber negativ auf die Fähigkeit des Modells aus, genau diese individuellen Merkmale zu lernen.\ctm{\cite[Abs. 15--22]{getmaxim_privacy_preserving_autocorrect_gboard}\cite[Abs. 9--11]{google_federated_learning}\cite[Abs. 4--7,12]{google_private_federated_learning_gboard}}
+Google hat das Problem bereits vor langer Zeit zumindest größtenteils gelöst. GBoard, die Bildschirmtastatur von Google, nutzt \usfw{federated learning} und \usfw{differential privacy}, um gleichzeitig so privat, individuell und generell wie möglich ihren Vorhersage- und Korrekturalgorithmus zu trainieren.\ctm{\cite[Abs. 5--7,14]{getmaxim_privacy_preserving_autocorrect_gboard}\cite[Abs. 2--5]{google_federated_learning}\cite[Abs. 10,12--15]{google_private_federated_learning_gboard}} Das einzige Problem stellt die Antiproportionalität von Individualität und Privatsphäre dar: Die Glättung von zu individuellen und somit identifizierbaren Daten schützt zwar die Privatsphäre, wirkt sich aber negativ auf die Fähigkeit des Modells aus, genau diese individuellen Merkmale lernen vorherzusagen.\ctm{\cite[Abs. 15--22]{getmaxim_privacy_preserving_autocorrect_gboard}\cite[Abs. 9--11]{google_federated_learning}\cite[Abs. 4--7,12]{google_private_federated_learning_gboard}}
 
-Hier werden dann künstlich erzeugte Trainingsdaten dazu benutzt, auf anonymem Wege Nutzen aus den normalerweise versteckten, zu individuellen Daten zu ziehen, indem große Datensätze künstlicher falscher Texte und Korrekturen mithilfe großer Sprachmodelle generiert werden, womit wiederum neue, kleinere Sprachmodelle trainiert werden. Diese Modelle werden dann -- vereinfacht gesagt -- auf Nutzerbasis fein angepasst, jedoch so, dass sich keine individuellen Beiträge bemessen lassen.\ct{getmaxim_privacy_preserving_autocorrect_gboard}{Abs. 23--46}
+Hier werden dann künstlich erzeugte Trainingsdaten dazu benutzt, um auf anonymem Wege Nutzen aus den normalerweise versteckten, zu individuellen Daten zu ziehen, indem große Datensätze künstlicher falscher Texte und Korrekturen mithilfe großer Sprachmodelle generiert werden, womit wiederum neue, kleinere Sprachmodelle trainiert werden. Diese Modelle werden dann -- vereinfacht gesagt -- auf Nutzerbasis fein angepasst, jedoch so, dass sich keine individuellen Beiträge bemessen lassen.\ct{getmaxim_privacy_preserving_autocorrect_gboard}{Abs. 23--46}
 
 \subsection{Lokalisierung}
 \label{sec:zukunft_und_moegliche_loesungen:lokalisierung}
 
-Die Lokalisierung stellt gewissermaßen gar keine Herausforderung mehr dar. Es handelt sich grundsätzlich nur noch um eine Frage der Zeit, bis viele KI-Anwendungwn auf den meisten Mobilgeräten laufen können;\ct{androidcentral_ondevice_ai_processing}{Abs. 1--3,12--15} die neuesten Google-Pixel-Modelle unterstützen sogar schon Googles Gemini-Nano-Modell, eine deutlich verkleinerte Version des großen Modells,\ct{androidauthority_gemini_nano}{Abs. 3--4} lokal zu laufen.\ct{google_gemini_nano_pixel_10_updates}{Abs. 2}
+Die Lokalisierung stellt gewissermaßen gar keine Herausforderung mehr dar. Es handelt sich grundsätzlich nur noch um eine Frage der Zeit, bis viele KI-Anwendungen auf den meisten Mobilgeräten laufen können;\ct{androidcentral_ondevice_ai_processing}{Abs. 1--3,12--15} die neuesten Google-Pixel-Modelle unterstützen sogar schon Googles Gemini-Nano-Modell, eine deutlich verkleinerte Version des großen Modells,\ct{androidauthority_gemini_nano}{Abs. 3--4} darin, lokal zu laufen.\ct{google_gemini_nano_pixel_10_updates}{Abs. 2}
 
 Eine große Rolle werden auch für andere Anwendungen kleine Sprachmodelle und ihre Gegenstücke in anderen Bereichen der Künstlichen Intelligenz spielen, die zum Beispiel mithilfe größerer Modelle für spezifische Anwendungszwecke trainiert werden können und dabei ihre \textit{Vorbilder} sogar übertreffen.\ct{datacamp_small_language_models}{Abs. 1--2,16--18}
 
@@ -307,11 +307,11 @@ Regelbasierte Ansätze sind zwar in der Hinsicht, dass sie meist keine so große
 \section{Zusammenfassung}
 \label{sec:zusammenfassung}
 
-Oberflächlich ist an der Sprachkorrektur und -vorhersage erst einmal nicht viel auffällig. Auch im Rahmen dieser Arbeit ist es nicht möglich, über eine grobe Betrachtung hinauszukommen, denn die erläuterten Konzepte sind sehr weit gefasst und umfassen viele weitere Konzepte: Besonders Neuronale Netze, Künstliche Intelligenz und \usfw{machine learning} sind in einer aufwärts strebenden Entwicklungsphase und versprechen neben einem großen Einfluss auf die globale Zukunft auch der Wissenschaft und Forschung noch viele neue Ideen, die zu den vielen teilweise erst jüngst entdeckten dazukommen.
+Oberflächlich ist an der Sprachkorrektur und -vorhersage erst einmal nicht viel auffällig. Auch im Rahmen dieser Arbeit ist es nicht möglich, über eine grobe Betrachtung hinauszukommen, denn die erläuterten Konzepte sind sehr weit gefasst und umfassen ihrerseits viele weitere Konzepte: Besonders Neuronale Netze, Künstliche Intelligenz und \usfw{machine learning} sind in einer aufwärts strebenden Entwicklungsphase und versprechen neben einem großen Einfluss auf die globale Zukunft auch der Wissenschaft und Forschung noch viele neue Ideen, die zu einigen der wichtigsten teilweise erst jüngst entdeckten dazukommen.
 
 Regelbasierte Sprachmodelle sind nur in ganz besonderen Fällen tatsächlich noch ein entscheidender Faktor in Systemen und eher eine Sache der Vergangenheit, obwohl sie eine theoretische Perfektion versprechen, der sich zumindest keine \emph{K}I nähern kann.
 
-Alles in allem ist \term{Kontext} das wichtigste Wort dieses ganzen Themenbereichs: Alles richtet sich nur noch danach, den Kontext so ganzheitlich und aber nuanciert zu erfassen und darauf basiert zu handeln. \usfw{LLMs}, \usfw{embedding vectors} und \usfw{attention layers} spielen dabei eine sehr große Rolle.
+Alles in allem ist \term{Kontext} das wichtigste Wort dieses ganzen Themenbereichs: Alles richtet sich nur noch danach, den Kontext so ganzheitlich, aber auch nuanciert wie möglich zu erfassen und darauf basierend zu handeln. \usfw{LLMs}, \usfw{embedding vectors} und \usfw{attention layers} spielen dabei eine sehr große Rolle.
 
 % =========== Ausblick auf die Facharbeit ==========
 \section{Ausblick auf die Facharbeit}
@@ -321,13 +321,13 @@ Alles in allem ist \term{Kontext} das wichtigste Wort dieses ganzen Themenbereic
 \subsection{Problemstellung und mögliche Zielsetzung}
 \label{sec:ausblick_auf_die_facharbeit:problemstellung_und_moegliche_zielsetzungen}
 
-Ich plane für meine Facharbeit, ein sehr persönliches Problem zu behandeln: Alle bekannten und beliebten Bildschirmtastaturen sind nicht quelloffen und ganz sicher nicht kostenlos -- man zahlt nur meistens nicht mit Geld. Die Tastaturen, die quelloffen sind, sind im Aussehen -- wenn überhaupt -- nicht weit von den anderen entfernt, welche Funktionen bei ihnen aber besonders unausgeprägt sind, sind Sprachkorrektur und -vorhersage.
+Ich plane für meine Facharbeit, ein sehr persönliches Problem zu behandeln: Alle bekannten und beliebten Bildschirmtastaturen sind nicht quelloffen und ganz sicher nicht kostenlos -- man zahlt nur meistens nicht mit Geld, sondern Informationen. Die Tastaturen, die quelloffen sind, sind im Aussehen -- wenn überhaupt -- nicht weit von den anderen entfernt, welche Funktionen ich bei ihnen aber besonders vermisse, sind gute Sprachkorrektur und -vorhersage.
 
-Grund dafür ist ziemlich sicher das ambivalente Verhältnis von vielen Nutzern, die viele Daten produzieren, und einer Tastatur, die nur durch viele Daten besser und bekannter wird. Ein weniger privatsphärefreundlicher Ansatz spielt sicher auch in die große Datenbasis der Superkonzerne Microsoft, Google und Apple hinein.
+Grund dafür ist ziemlich sicher das ambivalente Verhältnis von vielen Nutzern, die viele Daten produzieren, und einer Tastatur, die nur durch viele Daten besser und bekannter wird. Ein weniger privatsphärefreundlicher Ansatz spielt sicher auch der großen Datenbasis der Superkonzerne Microsoft, Google und Apple zu.
 
-Eine mögliche Zielsetzung für die folgende Facharbeit ist also die Entwicklung eines Prototyps zur Sprachkorrektur und/oder -vorhersage am Beispiel von Bildschirmtastaturen. Dabei muss nicht unbedingt das Niveau der führenden Algorithmen erreicht werden -- das wäre unrealistisch --, aber möglicherweise das der quelloffenen.
+Eine mögliche Zielsetzung für die folgende Facharbeit ist also die Entwicklung eines Prototyps zur Sprachkorrektur und -vorhersage am Beispiel von Bildschirmtastaturen. Dabei soll nicht unbedingt das Niveau der führenden Algorithmen erreicht werden -- das wäre unrealistisch --, aber möglicherweise das der quelloffenen.
 
-Neben diesem ambitionierten Ziel steht allerdings auch grundsätzlich die Auseinandersetzung mit den alten und neuen, aber hauptsächlich erfolgreichsten Ansätzen der Sprachkorrektur- und -vorhersagealgorithmen und damit, ob die Theorie in der Praxis bestätigt oder entkräftet wird.
+Neben diesem ambitionierten Ziel steht allerdings auch die grundsätzliche Auseinandersetzung mit alten und neuen, aber hauptsächlich den erfolgreichsten Ansätzen der Sprachkorrektur- und -vorhersagealgorithmen und die Erforschung, ob die Theorie in der Praxis bestätigt oder entkräftet wird.
 
 % ------------ Evaluation und Bewertung ------------
 \subsection{Evaluation und Bewertung}
@@ -339,7 +339,7 @@ Evaluiert werden könnte ein solcher Algorithmus beispielsweise anhand von:
 
     \item Test-Datensätzen, in die zufällige Fehler eingearbeitet worden sind,
 
-    \item Vergleichstests mit anderen Algorithmen von zum Beispiel den quelloffenen Bildschirmtastaturen oder aber den großen, nicht quelloffenen oder
+    \item Vergleichstests mit anderen Algorithmen von zum Beispiel den quelloffenen Bildschirmtastaturen oder aber den großen, wobei komplexer, oder
 
     \item benutzergesteuerter Testung und Bewertung, indem Testpersonen den Algorithmus nutzen sollen, um einen Test damit zu absolvieren.
     
@@ -353,7 +353,9 @@ Der zu entwickelnde Algorithmus soll keine großen oder \textit{kleinen} Sprachm
 
 Wie bereits erwähnt, soll der Algorithmus auch nicht schon seit langer Zeit entwickelte und verbesserte Algorithmen schlagen, sondern vielleicht eher neue, möglicherweise unkonventionelle Ansätze erproben und alten gegenüberstellen.
 
-Sprachverarbeitung ist schließlich ein sich rasant weiterentwickelndes Feld, in dem mit großen Ambitionen geforscht und in das vor allen Dingen mit viel Geld investiert wird. Neu entwickelte Technologien können ältere schnell übertreffen und für den Normalgebrauch irrelevant machen.
+Sprachverarbeitung ist schließlich ein sich rasant weiterentwickelndes Feld, in dem mit großen Ambitionen geforscht und in das vor allen Dingen viel Geld investiert wird. Neu entwickelte Technologien können ältere schnell übertreffen und für den Normalgebrauch irrelevant machen.
+
+Meine Facharbeit wird also eine Art Balance aus neueren und älteren Methoden anstreben und untersuchen, inwiefern die älteren immer noch anwendbar und mit neueren Methoden kombinierbar sind.
 
 \pagebreak
 % ############## Literaturverzeichnis ##############
@@ -369,19 +371,32 @@ Sprachverarbeitung ist schließlich ein sich rasant weiterentwickelndes Feld, in
 
 \subsection*{1. Versicherung der selbstständigen Anfertigung der Hausarbeit}
 
-Hiermit erkläre ich, dass ich die vorliegende Hausarbeit selbstständig angefertigt, keine anderen als die angegebenen Hilfsmittel zu ihrem Verfassen -- explizit nicht zur Recherche -- benutzt und die Stellen der Hausarbeit, die im Wortlaut oder im wesentlichen Inhalt aus anderen Werken entnommen wurden, mit genauer Quellenangabe kenntlich gemacht habe. Verwendete Informationen aus dem Internet sind dem Fachlehrer vollständig als Ausdruck beziehungsweise digital zur Verfügung gestellt worden.
+Hiermit erkläre ich, dass ich die vorliegende Hausarbeit selbstständig angefertigt, keine anderen als die angegebenen Hilfsmittel benutzt und die Stellen der Hausarbeit, die im Wortlaut oder im wesentlichen Inhalt aus anderen Werken entnommen wurden, mit genauer Quellenangabe kenntlich gemacht habe. Verwendete Informationen aus dem Internet sind dem Fachlehrer vollständig als Ausdruck beziehungsweise digital zur Verfügung gestellt worden.
 
-\vspace{1.5em}
+\begin{center}
 
-\noindent\rule{\linewidth}{0.4pt}
+    \includegraphics[height=1cm]{Hausarbeit Unterschrift 1.png}
+  
+    \vspace{-0.6cm}
+  
+    \rule{0.6\linewidth}{0.4pt}
+    
+\end{center}
+
 
 \subsection*{2. Veröffentlichungseinverständnis}
 
 Hiermit erkläre ich, dass ich damit einverstanden bin, wenn die von mir verfasste Hausarbeit der schulinternen Öffentlichkeit zugänglich gemacht wird.
 
-\vspace{1.5em}
+\begin{center}
 
-\noindent\rule{\linewidth}{0.4pt}
+    \includegraphics[height=1cm]{Hausarbeit Unterschrift 2.png}
+  
+    \vspace{-0.6cm}
+  
+    \rule{0.6\linewidth}{0.4pt}
+    
+\end{center}
 
 \end{document}
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
