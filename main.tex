@@ -161,7 +161,7 @@ Er findet vorwiegend Anwendung in der Sentiment-Analyse, bei Chatbots und automa
 
 \begin{center}***\end{center}
 
-Bevor in der Sprachverarbeitung ein Algorithmus mit einem Text etwas anfangen kann, muss dieser zuerst in eine Form gebracht werden, die für Maschinen lesbarer und besser verarbeitbar ist als die für uns Menschen gewöhnliche Aneinanderreihung von Zeichen. Auch Menschen nehmen Buchstaben nicht mehr als einzelne Zeichen wahr, sondern als übergeordnete Buchstabengruppen -- Worte.\ct{satzzeichen_wie_gehirn_woerter_erfasst}{Abs. 5}
+Bevor in der Sprachverarbeitung ein Algorithmus mit einem Text arbeiten kann, muss dieser zuerst in eine Form gebracht werden, die für Maschinen lesbarer und besser verarbeitbar ist als die für uns Menschen gewöhnliche Aneinanderreihung von Zeichen. Auch Menschen nehmen Buchstaben nicht mehr als einzelne Zeichen wahr, sondern als übergeordnete Buchstabengruppen -- Worte.\ct{satzzeichen_wie_gehirn_woerter_erfasst}{Abs. 5}
 
 Am Beispiel großer Sprachmodelle im Bereich der Künstlichen Intelligenz nach heutigem Standard lässt sich die Idee leicht veranschaulichen, auch wenn für jeden Anwendungsfall eine andere Vorverarbeitung benötigt wird:
 
@@ -177,7 +177,7 @@ Am Beispiel großer Sprachmodelle im Bereich der Künstlichen Intelligenz nach h
 
 Das Ergebnis dieser Schritte \usfw{enthält} - wenn auch nicht für Menschen verständlich -- fast alle Informationen, die es zum Eingabetext geben kann -- inklusive der Verbesserungen von Unklarheiten und Fehlern --, nur in sehr kondensierter Form. Vereinfacht gesagt können große Sprachmodelle hiervon direkt ihre Antwort ableiten.\ct{patrickstolp_transformer}{Abs. 22--23}
 
-Auch Sprachkorrektur und -vorhersagen nutzen diesen Prozess, in der Regel ist ein Teil ihrer Funktionsweise sogar -- abgesehen von seiner Größe -- in seiner algorithmischen Grundstruktur genau wie bei großen Sprachmodellen. Schließlich ist, das nächste Wort vorherzusagen, wie es die Sprachvorhersage tut, genau dasselbe, was diese Modelle machen, nur mit \emph{einem} nächsten Wort anstatt einer vollständigen Antwort.\ct{datacamp_small_language_models}{Abs. 1,11,13,15-18,31--33}
+Auch Sprachkorrektur und -vorhersagen nutzen diesen Prozess, in der Regel ist ein Teil ihrer Funktionsweise sogar -- abgesehen von der Größe -- in der algorithmischen Grundstruktur genau wie große Sprachmodelle. Schließlich ist, das nächste Wort vorherzusagen, wie es die Sprachvorhersage tut, genau dasselbe, was diese Modelle machen, nur mit \emph{einem} nächsten Wort anstatt einer vollständigen Antwort.\ct{datacamp_small_language_models}{Abs. 1,11,13,15-18,31--33}
 
 % ==================== Gegenwart ===================
 \section{Gegenwart}
@@ -208,7 +208,7 @@ Dabei kommen folgende Ausprägungen am meisten zur Anwendung:\ct{baeldung_ngram}
     
 \end{itemize}
 
-Längere Ketten von Wörtern führen zu exponentiell mehr Kombinationsmöglichkeiten, erfordern ebensoviel mehr Trainingsdaten und bringen außerdem durch das N-Grammen generell fehlende Kontextverständnis keine nennenswerten Vorteile mehr.\ct{dataleap_geschichte_sprachmodellierung}{Abs. 2,8--9}
+Längere Ketten von Wörtern führen zu exponentiell mehr Kombinationsmöglichkeiten, erfordern ebenso viel mehr Trainingsdaten und bringen außerdem durch das N-Grammen generell fehlende Kontextverständnis keine nennenswerten Vorteile mehr.\ct{dataleap_geschichte_sprachmodellierung}{Abs. 2,8--9}
 
 Es gibt viele Abwandlungen, die verschiedene Schwächen von N-Grammen korrigieren sollen, wie beispielsweise bidirektionale oder exponentielle N-Gramme, die \textsl{Häufigkeiten von sowohl folgenden als auch vorangehenden Wörtern zählen}\ct{computerweekly_sprachmodellierung}{Abs. 5, Punkt 2} beziehungsweise die zusätzliche Mechanismen in die Wahrscheinlichkeitsrechnung einbauen, die den Kontext mehr berücksichtigen und zu schnelle Rückschlüsse aus den Daten verhindern sollen.\ctm{\cite[Abs. 5, Punkt 2]{computerweekly_sprachmodellierung}\cite[Folie 10]{oxford_maximum_entropy_modelling}}
 
@@ -218,7 +218,7 @@ Diesem Algorithmus sind \emph{in der Theorie} keine Grenzen gesetzt, sowohl für
 
 Bevor die größten Modelle in ihrer Größe jedoch weiter wachsen, fehlt es als Erstes an einer ganz anderen Ressource: Trainingsdaten, besonders hochqualitative.\ctm{\cite[Abs. 1--2,28--29]{medium_solution_insufficient_llm_training_data}\cite[Abs. 1--2,37,51]{linkedin_chatgpt_consumed_internet}}
 
-Trotzdem sind neuronale Netze älteren Modellen wie N-Grammen weit überlegen, weil sie Kontext in einer Menge und Art berücksichtigen können, die mit N-Grammen unrealistisch zu erreichen ist,\ctm{\cite[Folie 46--49]{tuchemnitz_sprachmodellierung}\cite[Abs. 1,29]{towardsdatascience_neural_networks_over_ngram}} selbst wenn theoretisch ein solches System mithilfe zusätzlicher Regeln erschaffen werden könnte.\ct{geeksforgeeks_rule_based_nlp}{Abs. 1,4--5,8,10}
+Trotzdem sind neuronale Netze älteren Modellen wie N-Grammen weit überlegen, weil sie Kontext in einer Menge und Art berücksichtigen können, die mit N-Grammen realistisch nicht erreichbar ist,\ctm{\cite[Folie 46--49]{tuchemnitz_sprachmodellierung}\cite[Abs. 1,29]{towardsdatascience_neural_networks_over_ngram}} selbst wenn theoretisch ein solches System mithilfe zusätzlicher Regeln erschaffen werden könnte.\ct{geeksforgeeks_rule_based_nlp}{Abs. 1,4--5,8,10}
 
 \subsubsection{Wissensbasierte Sprachmodelle}
 \label{sec:gegenwart:algorithmen_und_modelle:wissensbasierte_sprachmodelle}
@@ -231,7 +231,7 @@ Regelbasierte Methoden sind heute allerdings nicht mehr wirklich relevant.\ctm{\
 \subsection{Herausforderungen}
 \label{sec:gegenwart:herausforderungen}
 
-Auf jeden Fall steht fest, dass die Sprachkorrektur früher als die Sprachvorhersage besser sein muss, weil Fehler dort eine schlimmere Auswirkung haben: Vorschläge gibt es mehrere und sie sind optional, heißt, der Benutzer kann immer noch entscheiden, sie nicht auszuwählen.\ctm{\cite[Abs. 1]{techbone_android_vorschlaege_verwenden_einstellen}\cite[Abs. 6--7]{apple_autokorrektur_vorschlaege_verwenden}} Autokorrektur hingegen arbeitet im Hintergrund und kann entweder alles überprüfen und möglicherweise korrigieren oder gar nichts.\ctm{\cite[Abs. 2]{apple_autokorrektur_vorschlaege_verwenden}\cite[Abs. 2]{makeuseof_turn_on_off_autocorrect_android}}
+Auf jeden Fall steht fest, dass das Hauptaugenmerk bei der Verbesserung \emph{einer} der beiden Konzepte auf der Sprachkorrektur liegen sollte, weil Fehler dort eine schlimmere Auswirkung haben: Vorschläge gibt es mehrere und sie sind optional, das heißt, der Benutzer kann immer noch entscheiden, sie nicht auszuwählen.\ctm{\cite[Abs. 1]{techbone_android_vorschlaege_verwenden_einstellen}\cite[Abs. 6--7]{apple_autokorrektur_vorschlaege_verwenden}} Autokorrektur hingegen arbeitet im Hintergrund und kann entweder alles überprüfen und möglicherweise korrigieren oder gar nichts.\ctm{\cite[Abs. 2]{apple_autokorrektur_vorschlaege_verwenden}\cite[Abs. 2]{makeuseof_turn_on_off_autocorrect_android}}
 
 Drei große Herausforderungen, vor denen die Entwickler der Sprachkorrektur stehen, sind:
 
@@ -241,7 +241,7 @@ Drei große Herausforderungen, vor denen die Entwickler der Sprachkorrektur steh
 
     \item[Mischsprache] Viele Nutzer berichten in den sozialen Medien, dass sie häufig mehrere Sprachen in einem Text vereinen und Korrektur dabei viele Probleme verursacht.\ctsr{reddit_autocorrect_multiple_languages_1, reddit_autocorrect_multiple_languages_2, reddit_autocorrect_multiple_languages_3, reddit_autocorrect_multiple_languages_4} Der Korrekturalgorithmus steht dort vor einer besonders komplizierten Aufgabe, denn Wörterbücher verschiedener Sprachen lassen sich sicher vereinen,\ct{microsoft_swiftkey_mit_mehreren_sprachen}{Abs. 1} Grammatik und Kontext sind allerdings deutlich schwieriger zu kombinieren, schließlich sind Vorhersagemodelle für jede Sprache einzeln trainiert -- man muss für jede neue Sprache ein Sprachpaket inklusive Wörterbuch und Sprachmodell herunterladen.\ct{microsoft_swiftkey_mit_mehreren_sprachen}{Abs. 6--12} Im Regelfall wird hier immer gerade das Modell verwendet, dessen Sprache der Algorithmus dort vermutet,\ctm{\cite[Abs. 2]{microsoft_swiftkey_mit_mehreren_sprachen}\cite[Abs. 6]{chromium_adaptive_spell_checking_multilingual}} was allerdings nur dann wirklich gut funktioniert, wenn pro Satz eine Sprache verwendet wird.\ct{chromium_adaptive_spell_checking_multilingual}{Abs. 7,15--17}
 
-    \item[Schreibstil] Individuelle Wörter, Abkürzungen oder Wendungen, die nicht im gewöhnlichen oder durchschnittlichen Sprachgebrauch in der Form oder Häufigkeit vorkommen, sollen zwar durch lernfähige Methoden berücksichtigt werden,\ctm{\cite{google_making_touchscreen_keyboards_adaptive}\cite[Abs. 1--2]{androidpolice_gboard_personal_dictionary}\cite[Abs. 3--4,39,41,49,52]{linkedin_surveilling_users_adaptive_soft_keyboards}} das muss aber nicht immer so funktionieren; dabei kann sowohl zu wenig als auch zu viel oder aber nicht in den richtigen Momenten Rücksicht genommen werden, wie verschiedene Nutzer berichten.\ctsr{reddit_autokorrect_schlecht_1,reddit_autokorrect_schlecht_2}
+    \item[Schreibstil] Individuelle Wörter, Abkürzungen oder Wendungen, die nicht im gewöhnlichen oder durchschnittlichen Sprachgebrauch in der Form oder Häufigkeit vorkommen, sollen zwar durch lernfähige Methoden berücksichtigt werden,\ctm{\cite{google_making_touchscreen_keyboards_adaptive}\cite[Abs. 1--2]{androidpolice_gboard_personal_dictionary}\cite[Abs. 3--4,39,41,49,52]{linkedin_surveilling_users_adaptive_soft_keyboards}} das muss aber nicht immer so funktionieren; dabei kann sowohl zu wenig als auch zu viel oder nicht in den richtigen Momenten Rücksicht genommen werden, wie verschiedene Nutzer berichten.\ctsr{reddit_autokorrect_schlecht_1,reddit_autokorrect_schlecht_2}
 
 \end{description}
 
@@ -317,25 +317,43 @@ Alles in allem ist \term{Kontext} das wichtigstes Wort dieses ganzen Themas: All
 \section{Ausblick auf die Facharbeit}
 \label{sec:ausblick_auf_die_facharbeit}
 
+% ---- Problemstellung und mögliche Zielsetzung ----
+\subsection{Problemstellung und mögliche Zielsetzung}
+\label{sec:ausblick_auf_die_facharbeit:problemstellung_und_moegliche_zielsetzungen}
 
+Ich plane für meine Facharbeit, ein sehr persönliches Problem zu behandeln: Alle bekannten und beliebten Bildschirmtastaturen sind nicht quelloffen und ganz sicher nicht kostenlos -- man zahlt nur meistens nicht mit Geld. Die Tastaturen, die quelloffen sind, sind im Aussehen -- wenn überhaupt -- nicht weit von den anderen entfernt, welche Funktionen bei ihnen aber besonders unausgeprägt sind, sind Sprachkorrektur und -vorhersage.
 
-% --- Problemstellungen und mögliche Zielsetzung ---
-\subsection{Problemstellungen und mögliche Zielsetzung}
-\label{sec:ausblick_auf_die_facharbeit:problemstellungen_und_moegliche_zielsetzungen}
+Grund dafür ist ziemlich sicher das ambivalente Verhältnis von vielen Nutzer, die viele Daten produzieren, und einer Tastatur, die nur durch viele Daten besser und bekannter wird. Ein weniger Privatsphäre-freundlicher Ansatz spielt sicher auch in die große Datenbasis der Superkonzerne Microsoft, Google und Apple hinein.
 
+Eine mögliche Zielsetzung für die folgende Facharbeit ist also die Entwicklung eines Prototyps zur Sprachkorrektur und/oder -vorhersage am Beispiel von Bildschirmtastaturen. Dabei muss nicht unbedingt das Niveau der führenden Algorithmen erreicht werden -- das wäre unrealistisch --, aber möglicherweise das der quelloffenen.
 
+Neben diesem ambitionierten Ziel steht allerdings auch grundsätzlich die Auseinandersetzung mit den alten und neuen, aber hauptsächlich erfolgreichsten Ansätzen der Sprachkorrektur- und -vorhersagealgorithmen und ob die Theorie in der Praxis bestätigt oder entkräftet wird.
 
 % ------------ Evaluation und Bewertung ------------
 \subsection{Evaluation und Bewertung}
 \label{sec:ausblick_auf_die_facharbeit:evaluation_und_bewertung}
 
+Evaluiert werden könnte ein solcher Algorithmus beispielsweise anhand von:
 
+\begin{itemize}
+
+    \item Test-Datensätzen, in die zufällige Fehler eingearbeitet worden sind,
+
+    \item Vergleichstests mit anderen Algorithmen von zum Beispiel den quelloffenen Bildschirmtastaturen oder aber den großen, nicht quelloffenen, oder
+
+    \item benutzergesteuerter Testung und Bewertung, indem Testpersonen den Algorithmus nutzen sollen, um einen Test damit zu absolvieren.
+    
+\end{itemize}
 
 % ---------------- Problemabgrenzung ---------------
 \subsection{Problemabgrenzung}
 \label{sec:ausblick_auf_die_facharbeit:problemabgrenzung}
 
+Der zu entwickelnde Algorithmus soll keine großen oder \textit{kleinen} Sprachmodelle, die trotzdem ein paar Milliarden Parameter haben, einsetzen, insbesondere da deren Entwicklung sehr zeit- und arbeitsaufwändig ist. Neuronale Netze generell kann ich noch nicht ausschließen, da sie möglicherweise noch wichtig werden, wenn es darum geht, riesige N-Gramm-Datensätze für die Vorhersage auf Mobiltelefonen zu verwenden und \textit{Platz gespart} werden muss.
 
+Wie bereits erwähnt, soll der Algorithmus auch nicht schon seit langer Zeit entwickelte und verbesserte Algorithmen schlagen, sondern vielleicht eher neue, möglicherweise unkonventionelle Ansätze erproben und alten gegenüberstellen.
+
+Sprachverarbeitung ist schließlich ein sich rasant weiter entwickelndes Feld, in dem mit großen Ambitionen geforscht und in das vor allen Dingen mit viel Geld investiert wird. Neu entwickelte Technologien können ältere schnell übertreffen und für den Normalgebrauch irrelevant machen.
 
 \pagebreak
 % ############## Literaturverzeichnis ##############
